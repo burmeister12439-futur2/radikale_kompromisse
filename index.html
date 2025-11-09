@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radikale Kompromisse – Deutschland 2025→2045 (v4.0 ULTIMATE)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .project-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #495057;
+        }
+        
+        /* TAB NAVIGATION */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #7f8c8d;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .tab.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* CONTENT STYLES */
+        .content-section {
+            margin-bottom: 30px;
+        }
+        
+        .content-section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .content-section h3 {
+            color: #495057;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .content-section p {
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .content-section ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .content-section li {
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box h4 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+        
+        /* ZK CARDS */
+        .zk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .zk-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .zk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .zk-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .zk-card .zk-title {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .zk-card .zk-values {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .zk-card .zk-desc {
+            color: #6c757d;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        /* MINI-RADAR in ZK-Cards */
+        .zk-mini-radar {
+            width: 150px;
+            height: 150px;
+            margin: 15px auto 10px;
+        }
+        
+        .zk-card canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* NEUE UX STYLES für v2.4 */
+        .rk-compact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .rk-compact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .visual-feedback-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .chart-highlight {
+            background: rgba(231, 76, 60, 0.1);
+            border: 3px solid #e74c3c;
+            padding: 20px;
+            border-radius: 15px;
+            animation: highlightFade 3s ease-out;
+        }
+        
+        @keyframes highlightFade {
+            0% { background: rgba(231, 76, 60, 0.3); }
+            100% { background: rgba(231, 76, 60, 0.1); }
+        }
+        
+        /* TOOL SPECIFIC */
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .chart-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .chart-container h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .statistics {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .statistics h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .legend {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .legend h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .legend-item {
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        .gap-analysis {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .gap-analysis h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .gap-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .gap-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            transition: all 0.3s;
+        }
+        
+        .gap-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .gap-name {
+            font-weight: 600;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .gap-values {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .gap-value {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1em;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Radikale Kompromisse</h1>
+            <div class="subtitle">Deutschland 2025 → 2030 → 2045</div>
+            <div class="subtitle" style="font-size: 1em; margin-top: 5px;">16 Zielkonflikte der Transformation</div>
+            <div class="project-info">
+                <strong>Projekt:</strong> D2030 e.V. – Neue Horizonte 2045 | 
+                <strong>Konzept:</strong> Klaus Burmeister | 
+                <strong>Stand:</strong> November 2025 | 
+                <strong>Version:</strong> 4.0 ULTIMATE
+            </div>
+        </header>
+
+        <!-- TAB NAVIGATION -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('tool')">🎯 Interaktives Tool</button>
+            <button class="tab" onclick="showTab('about')">📖 Über Radikale Kompromisse</button>
+            <button class="tab" onclick="showTab('zk-details')">🔍 Zielkonflikte im Detail</button>
+            <button class="tab" onclick="showTab('sources')">📚 Quellen & Methodik</button>
+            <button class="tab" onclick="showTab('outlook')">🚀 Ergebnis & Ausblick</button>
+        </div>
+
+        <!-- TAB 1: TOOL -->
+        <div id="tab-tool" class="tab-content active">
+            <div class="info-box">
+                <h4>💡 Lesehilfe:</h4>
+                <p><strong>Was zeigt das Tool?</strong></p>
+                <ul>
+                    <li><strong>IST 2025:</strong> Wo stehen wir heute? (grau)<br>
+                        <em>Beispiel Mobilität: 2.0 = Heute dominieren Autos den Straßenraum (75% aller Wege), wenig Platz für Fußgänger/Radfahrer.</em></li>
+                    <li><strong>2030 Zwischenziel:</strong> Wo wollen wir in 5 Jahren sein? (orange)<br>
+                        <em>Beispiel Mobilität: 2.5 = Erste Umverteilung – mehr Radwege, besserer ÖPNV, aber Autos noch dominant.</em></li>
+                    <li><strong>2045 Fernziel:</strong> Wo müssen wir in 20 Jahren sein? (grün)<br>
+                        <em>Beispiel Mobilität: 4.0 = Aufenthaltsqualität hat Vorrang – Straßenraum vor allem für Menschen, nicht Autos.</em></li>
+                    <li><strong>Lücke (Gap):</strong> Wie groß ist die Veränderung von heute bis 2045?<br>
+                        <em>Beispiel Mobilität: Gap 2.0 = Große Transformation nötig (eine der größten Herausforderungen).</em></li>
+                </ul>
+                <p><strong>Wie nutzen?</strong> Bewege die Slider, um zu sehen, wie sich verschiedene Entwicklungspfade auswirken. Das Radar-Diagramm zeigt alle 16 Bereiche auf einen Blick.</p>
+            </div>
+
+            <div class="info-box" style="background: #e8f4f8; border-left: 4px solid #3498db;">
+                <h4>🎮 Bedienung:</h4>
+                <ul style="margin: 10px 0 0 0;">
+                    <li><strong>↻ Zurücksetzen:</strong> Setzt alle Slider auf die ursprünglichen D2030-Zielwerte zurück</li>
+                    <li><strong>📋 JSON kopieren:</strong> Kopiert alle aktuellen Werte (IST/2030/2045/Gap) in die Zwischenablage – praktisch für Weiterverarbeitung in Excel oder anderen Tools</li>
+                    <li><strong>👁️ Visualisierung ein/aus:</strong> Blendet Radar-Chart und Gap-Analyse ein oder aus – nützlich für fokussiertes Arbeiten oder kleine Bildschirme</li>
+                    <li><strong>Slider bewegen:</strong> Ziehe die Regler, um alternative Entwicklungspfade zu erkunden – das Radar-Chart aktualisiert sich live</li>
+                </ul>
+            </div>
+
+            <div class="controls">
+                <button class="btn-primary" onclick="resetValues()">↻ Zurücksetzen (Startwerte)</button>
+                <button class="btn-secondary" onclick="copyJSON()">📋 Werte kopieren (JSON)</button>
+                <button class="btn-primary" onclick="toggleVis()">👁️ Visualisierung ein/aus</button>
+            </div>
+            
+            <!-- TRANSFORMATIONSPFADE -->
+            <div style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px; border: 2px solid #667eea;">
+                <h3 style="margin: 0 0 15px 0; color: #2c3e50; font-size: 1.15em;">🚀 Transformationspfade laden:</h3>
+                <p style="margin: 0 0 15px 0; color: #5a6c7d; font-size: 0.95em;">
+                    Exemplarische Szenarien für Deutschland 2025→2045 - ZK-übergreifend und integrierend
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                    <button onclick="ladeTransformationspfad('moderat')" style="padding: 15px 20px; background: #f39c12; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        🐢 Moderat
+                        <div style="font-size: 0.85em; font-weight: 400; margin-top: 5px; opacity: 0.9;">Schrittweise (47% Gap)</div>
+                    </button>
+                    <button onclick="ladeTransformationspfad('schnell')" style="padding: 15px 20px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        🚀 Ambitioniert
+                        <div style="font-size: 0.85em; font-weight: 400; margin-top: 5px; opacity: 0.9;">Maximal (68% Gap)</div>
+                    </button>
+                    <button onclick="ladeTransformationspfad('bdi')" style="padding: 15px 20px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        🏭 BDI
+                        <div style="font-size: 0.85em; font-weight: 400; margin-top: 5px; opacity: 0.9;">Wirtschaft (35% Gap)</div>
+                    </button>
+                    <button onclick="ladeTransformationspfad('wbgu')" style="padding: 15px 20px; background: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        🌍 WBGU
+                        <div style="font-size: 0.85em; font-weight: 400; margin-top: 5px; opacity: 0.9;">Wissenschaft (75% Gap)</div>
+                    </button>
+                    <button onclick="resetValues()" style="padding: 15px 20px; background: #95a5a6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        ↻ Zurücksetzen
+                    </button>
+                </div>
+            </div>
+
+            <!-- RADAR-CHART & STATISTIK (OBEN für direkte Sichtbarkeit!) -->
+            <div id="chart-stats-section">
+                <div class="main-content" id="vis-container">
+                    <div class="chart-container" id="radar-container">
+                        <h2>🎯 Radar-Chart</h2>
+                        
+                        <!-- GLOBALER TOGGLE-BUTTON (sichtbar wenn RK aktiv) -->
+                        <div id="global-rk-toggle" style="display: none; margin: 15px 0; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; text-align: center;">
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                                <span style="color: white; font-weight: 600; font-size: 1.05em;">👁️ Ansicht:</span>
+                                <button id="toggle-mit-rk" onclick="globalToggleRKView(true)" style="padding: 8px 20px; background: white; color: #667eea; border: 2px solid white; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95em;">
+                                    MIT RK
+                                </button>
+                                <button id="toggle-ohne-rk" onclick="globalToggleRKView(false)" style="padding: 8px 20px; background: rgba(255,255,255,0.2); color: white; border: 2px solid white; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95em;">
+                                    OHNE RK
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="feedback-badge-container"></div>
+                        <canvas id="radarChart"></canvas>
+                        
+                        <!-- VORHER/NACHHER TABELLE -->
+                        <div id="rk-impact-table" style="display: none; margin-top: 25px; padding: 20px; background: #fff3cd; border: 2px solid #f39c12; border-radius: 10px;">
+                            <h3 style="color: #e67e22; margin-bottom: 15px;">📊 Wirkung der ausgewählten RK:</h3>
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: #f8f9fa;">
+                                        <th style="padding: 10px; text-align: left; border-bottom: 2px solid #dee2e6;">Zielkonflikt</th>
+                                        <th style="padding: 10px; text-align: center; border-bottom: 2px solid #dee2e6;">Ohne RK</th>
+                                        <th style="padding: 10px; text-align: center; border-bottom: 2px solid #dee2e6;">Mit RK</th>
+                                        <th style="padding: 10px; text-align: center; border-bottom: 2px solid #dee2e6;">Änderung</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rk-impact-tbody">
+                                    <!-- Wird dynamisch befüllt -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="statistics">
+                        <h2>📊 Übersicht & Statistik</h2>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-value" id="avg-ist">2.34</div>
+                                <div class="stat-label">Ø IST 2025</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="avg-2030">2.84</div>
+                                <div class="stat-label">Ø 2030</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="avg-2045">3.62</div>
+                                <div class="stat-label">Ø 2045</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="avg-gap">1.28</div>
+                                <div class="stat-label">Ø Gap</div>
+                            </div>
+                        </div>
+
+                        <div class="gap-analysis">
+                            <h3>🎯 Gap-Analyse (IST 2025 → Ziel 2045) – sortiert nach Gap:</h3>
+                            <div class="gap-list" id="gap-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend" style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <h3>📋 Legende (Radar/Nummern):</h3>
+                    <div class="legend-grid">
+                        <div class="legend-item"><strong>1)</strong> Wasser & Qualität</div>
+                        <div class="legend-item"><strong>2)</strong> Wohnen</div>
+                        <div class="legend-item"><strong>3)</strong> Mobilität</div>
+                        <div class="legend-item"><strong>4)</strong> Energie & Netze</div>
+                        <div class="legend-item"><strong>5)</strong> Wirtschaft & Industrie</div>
+                        <div class="legend-item"><strong>6)</strong> Gesundheit & Soziales</div>
+                        <div class="legend-item"><strong>7)</strong> Bildung & Forschung</div>
+                        <div class="legend-item"><strong>8)</strong> Digitales & Daten</div>
+                        <div class="legend-item"><strong>9)</strong> Landwirtschaft</div>
+                        <div class="legend-item"><strong>10)</strong> Verfahren & Verwaltung</div>
+                        <div class="legend-item"><strong>11)</strong> Sicherheit & Resilienz</div>
+                        <div class="legend-item"><strong>12)</strong> Migration & Fachkräfte</div>
+                        <div class="legend-item"><strong>13)</strong> Natur & Flächen</div>
+                        <div class="legend-item"><strong>14)</strong> Steuern & Finanzaufsicht</div>
+                        <div class="legend-item"><strong>15)</strong> Beratungsstaat</div>
+                        <div class="legend-item"><strong>16)</strong> Kultur & Medien</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RADIKALE KOMPROMISSE Auswahl (kompakt!) -->
+            <div class="rk-section" style="background: #fff9e6; border: 2px solid #f39c12; border-radius: 15px; padding: 25px; margin: 30px 0;">
+                <h2 style="color: #e67e22; margin-bottom: 10px;">⚡ Radikale Kompromisse (BETA)</h2>
+                <p style="margin-bottom: 20px; color: #7f8c8d; font-size: 0.95em;">
+                    <strong>Neu:</strong> Wähle konkrete Lösungsansätze für ZK 2 (Wohnen) und ZK 4 (Energie). 
+                    Das Radar-Chart oben zeigt dir sofort die Wirkung! 
+                </p>
+
+                <div class="rk-compact-grid">
+                    <!-- ZK 2: Wohnen -->
+                    <div class="rk-zk-box" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.05em;">🏠 ZK 2: Wohnen</h3>
+                        <p style="font-size: 0.85em; color: #7f8c8d; margin-bottom: 15px;">
+                            <strong>IST:</strong> 2.5 | <strong>Ziel:</strong> 4.0 | <strong>Gap:</strong> 1.5
+                        </p>
+                    
+                        <label for="rk-select-2" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9em;">Radikaler Kompromiss:</label>
+                        <select id="rk-select-2" onchange="applyRK(2)" style="width: 100%; padding: 10px; font-size: 14px; border: 2px solid #3498db; border-radius: 8px; cursor: pointer;">
+                        <option value="">❌ Keine RK (Status quo)</option>
+                        <option value="0">✅ RK W1: Sanierungsumlage mit Härtefallklausel (60% Gap)</option>
+                        <option value="1">✅ RK W2: Mietendeckel mit Klima-Bonus (45% Gap)</option>
+                        <option value="2">✅ RK W3: Bestandsschutz mit Verfallsdatum (50% Gap)</option>
+                    </select>
+                    
+                    <div id="rk-toggle-container-2" style="margin-top: 15px; display: none;">
+                        <!-- Toggle-Button wird hier dynamisch eingefügt -->
+                    </div>
+                    
+                    <div id="rk-info-2" style="margin-top: 15px; padding: 15px; background: #e8f4f8; border-left: 4px solid #3498db; border-radius: 5px; display: none;">
+                        <!-- Wird dynamisch befüllt -->
+                    </div>
+                    
+                    <div id="rk-erklaerung-container-2" style="margin-top: 15px; display: none;">
+                        <!-- Button + Erklärung werden hier dynamisch eingefügt -->
+                    </div>
+                </div>
+
+                <!-- ZK 4: Energie -->
+                    <div class="rk-zk-box" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.05em;">⚡ ZK 4: Energie & Netze</h3>
+                        <p style="font-size: 0.85em; color: #7f8c8d; margin-bottom: 15px;">
+                            <strong>IST:</strong> 2.5 | <strong>Ziel:</strong> 4.5 | <strong>Gap:</strong> 2.0
+                        </p>
+                        
+                        <label for="rk-select-4" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9em;">Radikaler Kompromiss:</label>
+                        <select id="rk-select-4" onchange="applyRK(4)" style="width: 100%; padding: 10px; font-size: 14px; border: 2px solid #3498db; border-radius: 8px; cursor: pointer;">
+                        <option value="">❌ Keine RK (Status quo)</option>
+                        <option value="0">✅ RK E1: Netz-Turbo mit Bürger*innen-Beirat (65% Gap)</option>
+                        <option value="1">✅ RK E2: Erneuerbare-Zwang mit Ausgleichszahlung (55% Gap)</option>
+                        <option value="2">✅ RK E3: Dezentrale-Energie-Bevorzugung (50% Gap)</option>
+                    </select>
+                    
+                    <div id="rk-toggle-container-4" style="margin-top: 15px; display: none;">
+                        <!-- Toggle-Button wird hier dynamisch eingefügt -->
+                    </div>
+                    
+                    <div id="rk-info-4" style="margin-top: 15px; padding: 15px; background: #e8f4f8; border-left: 4px solid #3498db; border-radius: 5px; display: none;">
+                            <!-- Wird dynamisch befüllt -->
+                        </div>
+                        
+                        <div id="rk-erklaerung-container-4" style="margin-top: 15px; display: none;">
+                            <!-- Button + Erklärung werden hier dynamisch eingefügt -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZUKUNFTSTRICHTER - Transformationspfade Visualisierung -->
+            <div style="margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px; border: 3px solid #667eea;">
+                <h2 style="margin: 0 0 10px 0; color: #2c3e50;">🔮 Zukunftstrichter: Transformationspfade 2025→2045</h2>
+                <p style="margin: 0 0 25px 0; color: #5a6c7d; font-size: 1.05em;">
+                    Wie können die 16 Zielkonflikte durch konkrete Ereignisse und Radikale Kompromisse übergreifend transformiert werden?
+                </p>
+                
+                <svg id="zukunftstrichter" width="100%" height="500" viewBox="0 0 1000 500" style="background: white; border-radius: 10px; border: 2px solid #dee2e6;">
+                    <!-- Extremszenarien (Begrenzungen) -->
+                    <path d="M 100 250 L 900 50" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                    <text x="910" y="55" font-size="14" fill="#95a5a6">Extremszenario (oben)</text>
+                    
+                    <path d="M 100 250 L 900 450" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                    <text x="910" y="455" font-size="14" fill="#95a5a6">Extremszenario (unten)</text>
+                    
+                    <!-- NH2045 Zukunftskorridor (3 Szenarien) -->
+                    <path d="M 100 250 L 900 120" stroke="#3498db" stroke-width="2" fill="none" opacity="0.6"/>
+                    <text x="910" y="125" font-size="13" fill="#3498db" font-weight="600">NH: Systemumstieg</text>
+                    
+                    <path d="M 100 250 L 900 250" stroke="#27ae60" stroke-width="2" fill="none" opacity="0.6"/>
+                    <text x="910" y="255" font-size="13" fill="#27ae60" font-weight="600">NH: Radikale Kompromisse</text>
+                    
+                    <path d="M 100 250 L 900 350" stroke="#f39c12" stroke-width="2" fill="none" opacity="0.6"/>
+                    <text x="910" y="355" font-size="13" fill="#f39c12" font-weight="600">NH: Ökoliberal</text>
+                    
+                    <!-- TP MODERAT (orange, dünn) -->
+                    <path d="M 100 250 L 250 265 L 400 280 L 550 290 L 700 305 L 850 320" 
+                          stroke="#f39c12" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- Ereignispunkte TP Moderat -->
+                    <circle cx="250" cy="265" r="6" fill="#f39c12"/>
+                    <text x="250" y="290" font-size="11" fill="#5a6c7d" text-anchor="middle">2027</text>
+                    
+                    <circle cx="400" cy="280" r="6" fill="#f39c12"/>
+                    <text x="400" y="305" font-size="11" fill="#5a6c7d" text-anchor="middle">2032</text>
+                    
+                    <circle cx="550" cy="290" r="8" fill="#e74c3c"/><!-- Störereignis -->
+                    <text x="550" y="320" font-size="11" fill="#e74c3c" text-anchor="middle" font-weight="600">2034</text>
+                    
+                    <circle cx="700" cy="305" r="6" fill="#f39c12"/>
+                    <text x="700" y="330" font-size="11" fill="#5a6c7d" text-anchor="middle">2038</text>
+                    
+                    <!-- TP SCHNELL (rot, dick) -->
+                    <path d="M 100 250 L 200 220 L 320 180 L 480 160 L 640 145 L 850 130" 
+                          stroke="#e74c3c" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- Ereignispunkte TP Schnell -->
+                    <circle cx="200" cy="220" r="8" fill="#c0392b"/><!-- Auslöser -->
+                    <text x="200" y="210" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="600">2026</text>
+                    
+                    <circle cx="320" cy="180" r="6" fill="#e74c3c"/>
+                    <text x="320" y="170" font-size="11" fill="#5a6c7d" text-anchor="middle">2029</text>
+                    
+                    <circle cx="480" cy="160" r="6" fill="#e74c3c"/>
+                    <text x="480" y="150" font-size="11" fill="#5a6c7d" text-anchor="middle">2031</text>
+                    
+                    <circle cx="640" cy="145" r="8" fill="#95a5a6"/><!-- Störereignis -->
+                    <text x="640" y="135" font-size="11" fill="#5a6c7d" text-anchor="middle">2033</text>
+                    
+                    <circle cx="800" cy="135" r="6" fill="#e74c3c"/>
+                    <text x="800" y="125" font-size="11" fill="#5a6c7d" text-anchor="middle">2037</text>
+                    
+                    <!-- Startpunkt (Gegenwart 2025) -->
+                    <circle cx="100" cy="250" r="10" fill="#2c3e50"/>
+                    <text x="100" y="275" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="600">2025</text>
+                    <text x="100" y="235" font-size="12" fill="#2c3e50" text-anchor="middle">Gegenwart</text>
+                    
+                    <!-- Endpunkt 2045 -->
+                    <circle cx="850" cy="250" r="10" fill="#2c3e50"/>
+                    <text x="850" y="275" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="600">2045</text>
+                    
+                    <!-- Zeitachse unten -->
+                    <line x1="100" y1="480" x2="850" y2="480" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="100" y="495" font-size="12" fill="#2c3e50" text-anchor="middle">2025</text>
+                    <text x="287" y="495" font-size="12" fill="#2c3e50" text-anchor="middle">2030</text>
+                    <text x="475" y="495" font-size="12" fill="#2c3e50" text-anchor="middle">2035</text>
+                    <text x="662" y="495" font-size="12" fill="#2c3e50" text-anchor="middle">2040</text>
+                    <text x="850" y="495" font-size="12" fill="#2c3e50" text-anchor="middle">2045</text>
+                    
+                    <!-- Legende -->
+                    <rect x="50" y="30" width="20" height="4" fill="#e74c3c"/>
+                    <text x="75" y="35" font-size="13" fill="#2c3e50">TP Schnell (ambitioniert, 68% Gap)</text>
+                    
+                    <rect x="50" y="50" width="20" height="4" fill="#f39c12"/>
+                    <text x="75" y="55" font-size="13" fill="#2c3e50">TP Moderat (schrittweise, 47% Gap)</text>
+                    
+                    <circle cx="60" cy="75" r="5" fill="#e74c3c"/>
+                    <text x="75" y="78" font-size="12" fill="#5a6c7d">Ereignis (Beschleunigung)</text>
+                    
+                    <circle cx="60" cy="95" r="5" fill="#95a5a6"/>
+                    <text x="75" y="98" font-size="12" fill="#5a6c7d">Störereignis (Verzögerung)</text>
+                </svg>
+                
+                <!-- Ereignis-Details -->
+                <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- TP Moderat -->
+                    <div style="padding: 20px; background: white; border-left: 4px solid #f39c12; border-radius: 8px;">
+                        <h3 style="color: #f39c12; margin: 0 0 15px 0;">🐢 TP Moderat - Ereignisse</h3>
+                        <div style="font-size: 0.9em; line-height: 1.7; color: #2c3e50;">
+                            <strong>2027:</strong> Kommunale Energie-Offensive (50 Modellkommunen)<br>
+                            <strong>2029:</strong> Mietendeckel mit Klima-Bonus bundesweit<br>
+                            <strong>2032:</strong> Synergie Energie→Wohnen (+5%)<br>
+                            <strong style="color: #e74c3c;">2034:</strong> <em>Störereignis: Dürresommer (keine Beschleunigung)</em><br>
+                            <strong>2038:</strong> Skalierung, aber fragmentiert<br>
+                            <strong>2045:</strong> Zielbild: Energie/Wohnen 3.2-3.6, Rest ~2.9
+                        </div>
+                    </div>
+                    
+                    <!-- TP Schnell -->
+                    <div style="padding: 20px; background: white; border-left: 4px solid #e74c3c; border-radius: 8px;">
+                        <h3 style="color: #e74c3c; margin: 0 0 15px 0;">🚀 TP Schnell - Ereignisse</h3>
+                        <div style="font-size: 0.9em; line-height: 1.7; color: #2c3e50;">
+                            <strong style="color: #c0392b;">2026:</strong> <em>Auslöser: Flutkatastrophe (200 Tote)</em><br>
+                            <strong>2027:</strong> Netz-Turbo + Sanierungsumlage parallel<br>
+                            <strong>2029:</strong> CO2-Preis verdreifacht (+ÖPNV-Offensive)<br>
+                            <strong>2031:</strong> Synergie-Kaskade (+10%, +8%, +5%)<br>
+                            <strong style="color: #95a5a6;">2033:</strong> <em>Störereignis: Soziale Proteste</em><br>
+                            <strong>2037:</strong> Durchbruch (85% Erneuerbare)<br>
+                            <strong>2045:</strong> Zielbild: Ø 3.8 Punkte, 95% Klimaziele
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDER (16 Zielkonflikte) -->
+            <div class="chart-container" style="margin-top: 30px;">
+                <h2>📊 Fein-Justierung (Slider für alle 16 ZK)</h2>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">Optional: Passe die 2045-Zielwerte manuell an. Dies überschreibt die RK-Effekte.</p>
+                <div id="sliders"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: ÜBER RK -->
+        <div id="tab-about" class="tab-content">
+            <div class="content-section">
+                <h2>Was sind Radikale Kompromisse?</h2>
+                
+                <p><strong>Transformation ohne Masterplan:</strong> Deutschland steht vor enormen Herausforderungen – Klimakrise, soziale Ungleichheit, technologischer Wandel. Klassische Lösungsansätze scheitern oft an der Komplexität und widersprüchlichen Zielen. <strong>Radikale Kompromisse</strong> bieten einen neuen Weg:</p>
+                
+                <div class="info-box">
+                    <h4>Definition</h4>
+                    <p>Radikale Kompromisse sind <strong>bewusste, verantwortete Vereinbarungen unter Konfliktbedingungen</strong>. Sie zielen nicht auf dauerhaften Ausgleich oder Konsens, sondern auf <strong>zeitlich befristete, überprüfbare Regelungen</strong> im Angesicht fundamentaler Zielkonflikte.</p>
+                </div>
+
+                <h3>🎯 Warum „radikal"?</h3>
+                <p>Der „radikale" Charakter liegt nicht in der Radikalität der Lösung, sondern in der <strong>Bereitschaft, Differenz und Widerspruch auszuhalten</strong> – und dennoch gemeinsame Handlungsfähigkeit herzustellen. Sie eröffnen Möglichkeitsräume, ohne normative Leitplanken (wie die SDGs oder NH 2045-Szenarien) aufzugeben.</p>
+
+                <h3>📋 6 Prinzipien Radikaler Kompromisse</h3>
+                <ol>
+                    <li><strong>Temporär:</strong> Perspektive 2045, Review 2030. RK sind Zwischenlösungen auf dem Weg zum Zukunftskorridor, keine Dauerlösungen.</li>
+                    <li><strong>Überprüfbar:</strong> Transparentes Monitoring, Berichtspflicht. Was funktioniert? Was nicht? Nachsteuerung möglich.</li>
+                    <li><strong>Reversibel/Anpassbar:</strong> Rückholbar wo möglich; bei Kipppunkten (Klima) nur Nachsteuerung. Kein „Weiter so", aber auch kein Scheitern bei Fehlern.</li>
+                    <li><strong>Legitimiert:</strong> ALLE relevanten Akteure einbinden – Eigentümer, Nutzer, Staat, Zivilgesellschaft. Durch Bürgerräte, Reallabore, Enquete-Kommissionen.</li>
+                    <li><strong>Zumutbar:</strong> Beide Seiten geben nach (sichtbar!), Lösung ist neuartig, keine klassischen Verlierer, Bewegung im NH 2045-Korridor.</li>
+                    <li><strong>Normgebunden:</strong> Innerhalb des Zukunftskorridors (SDGs, Neue Horizonte 2045). Abweichungen müssen begründet werden.</li>
+                </ol>
+
+                <h3>🌍 Kontext: Neue Horizonte 2045</h3>
+                <p>Dieses Tool basiert auf den <strong>„Neue Horizonte 2045"</strong>-Szenarien von D2030 e.V. Drei dieser Szenarien markieren einen <strong>normativen Zukunftskorridor</strong>: ökologisch verantwortlich, technologisch souverän, sozial gerecht:</p>
+                <ul>
+                    <li><strong>Nachhaltiger Systemumstieg:</strong> Koordinierter Umbau, starke Steuerung</li>
+                    <li><strong>Radikale Kompromisse:</strong> Konflikte produktiv, zeitlich befristete Deals</li>
+                    <li><strong>Ökoliberale Transformation:</strong> Innovation & Märkte, klare Preissignale</li>
+                </ul>
+                <p>Die Zielwerte 2045 in diesem Tool (Ø 3.62) entsprechen dem <strong>„Radikale Kompromisse"-Szenario</strong> (mittlere Zielerreichung 3-4).</p>
+
+                <h3>🔥 Warum Zielkonflikte?</h3>
+                <p>In der Energie-, Wohnungs- oder Innovationspolitik treffen <strong>legitime Ziele aufeinander – und geraten in Widerspruch</strong>: Klimaschutz vs. soziale Bezahlbarkeit, technologische Offenheit vs. regulative Verantwortung. Der Reflex, solche Spannungen aufzulösen oder zu überdecken, führt zu Stillstand.</p>
+                <p><strong>Die These:</strong> Gerade in diesen Zielkonflikten liegt das Potenzial für echten Wandel. Statt sie als Störungen zu behandeln, gilt es, sie als <strong>produktive Spannungsfelder</strong> zu begreifen.</p>
+
+                <div class="success-box">
+                    <h4>✅ Zielkonflikte als Katalysatoren der Veränderung</h4>
+                    <p>Transformation entsteht nicht durch die Glättung von Differenzen, sondern durch das <strong>Zumuten von Unterschiedlichkeit</strong>. Konflikt wird nicht umgangen, sondern als Gestaltungsraum geöffnet. So wird aus dem Dilemma ein Möglichkeitsraum.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: ZK DETAILS -->
+        <div id="tab-zk-details" class="tab-content">
+            <div class="content-section">
+                <h2>Die 16 Zielkonflikte im Detail</h2>
+                <p>Jeder Zielkonflikt beschreibt eine <strong>strukturelle Spannung zwischen zwei legitimen Polen</strong>. Die Skala 1-5 zeigt, welcher Pol aktuell dominiert:</p>
+                <ul>
+                    <li><strong>1-2:</strong> Pol A stark dominant</li>
+                    <li><strong>3:</strong> Ausgewogen / produktive Balance</li>
+                    <li><strong>4-5:</strong> Pol B stark dominant</li>
+                </ul>
+
+                <div class="zk-grid">
+                    <!-- ZK 1 -->
+                    <div class="zk-card">
+                        <h4>1. Wasser & Qualität</h4>
+                        <div class="zk-title">Vermeidung (Quelle) ↔ dauerhaftes Restrisiko</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-1"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">PFAS und andere „ewige" Chemikalien sind extrem persistent. Quellenkontrolle steht gegen teure/unsichere Aufbereitung mit Restrisiko. Gesundheitsschutz vs. Folgekosten.</div>
+                    </div>
+
+                    <!-- ZK 2 -->
+                    <div class="zk-card">
+                        <h4>2. Wohnen</h4>
+                        <div class="zk-title">Bezahlbarkeit ↔ Klimasanierung</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-2"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 4.0</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">Klimasanierung senkt Emissionen (112 Mio. t CO₂e Gebäudesektor), kann aber Warmmieten treiben. Sanierungsrate aktuell nur ~1% (Ziel: 2%). Ziel: Emissionsminderung ohne Verdrängung.</div>
+                    </div>
+
+                    <!-- ZK 3 -->
+                    <div class="zk-card">
+                        <h4>3. Mobilität</h4>
+                        <div class="zk-title">Aufenthaltsqualität ↔ Autoflächen</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-3"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 4.0</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 2.0</span>
+                        </div>
+                        <div class="zk-desc">Modal Split MIV aktuell 75%. Straßenraum für Autos konkurriert mit Sicherheit, Lärm und Platz für Fuß/Rad/ÖPNV. THG-Verkehr: 148 Mio. t CO₂e.</div>
+                    </div>
+
+                    <!-- ZK 4 -->
+                    <div class="zk-card">
+                        <h4>4. Energie & Netze</h4>
+                        <div class="zk-title">Netzbeschleunigung ↔ Beteiligung/Anwohner</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-4"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.5</span>
+                            <span>2045: 4.5</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 2.0</span>
+                        </div>
+                        <div class="zk-desc">Erneuerbare Energien aktuell 22.1% am BEV. Schneller Ausbau vs. Bürgerproteste. THG-gesamt: 746 Mio. t CO₂e. Zentralisierung vs. Dezentralität.</div>
+                    </div>
+
+                    <!-- ZK 5 -->
+                    <div class="zk-card">
+                        <h4>5. Wirtschaft & Industrie</h4>
+                        <div class="zk-title">Standortwettbewerb ↔ Klimaregulierung</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-5"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 4.0</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">THG-Industrie: 181 Mio. t CO₂e. Wettbewerbsfähigkeit vs. Klimaschutz. Carbon Leakage-Risiko vs. Green Deal. Transformation startet.</div>
+                    </div>
+
+                    <!-- ZK 6 -->
+                    <div class="zk-card">
+                        <h4>6. Gesundheit & Soziales</h4>
+                        <div class="zk-title">Kostendämpfung ↔ Versorgungsqualität/Nähe</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-6"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 3.0</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #27ae60; font-weight: bold;">Gap: 0.5</span>
+                        </div>
+                        <div class="zk-desc">Ausgaben 13.2% BIP (474 Mrd. €). Versorgung noch ok, aber Fachkräftemangel wächst, ländlicher Raum unterversorgt.</div>
+                    </div>
+
+                    <!-- ZK 7 -->
+                    <div class="zk-card">
+                        <h4>7. Bildung & Forschung</h4>
+                        <div class="zk-title">Leistungsstandards ↔ Chancengerechtigkeit</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-7"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #f39c12; font-weight: bold;">Gap: 1.0</span>
+                        </div>
+                        <div class="zk-desc">Ausgaben 4.8% BIP, Lehrkräftemangel 40.000 Stellen. PISA Mittelfeld, soziale Ungleichheit hoch. Elite vs. Inklusion.</div>
+                    </div>
+
+                    <!-- ZK 8 -->
+                    <div class="zk-card">
+                        <h4>8. Digitales & Datenräume</h4>
+                        <div class="zk-title">Offenheit ↔ Datensouveränität</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-8"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.5</span>
+                            <span>2045: 4.0</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">Digitalisierungsgrad 68%. Datenökonomie vs. Datenschutz. DSGVO-Konflikt mit Innovation. Privacy vs. Wachstum.</div>
+                    </div>
+
+                    <!-- ZK 9 -->
+                    <div class="zk-card">
+                        <h4>9. Landwirtschaft & Ernährung</h4>
+                        <div class="zk-title">Ertrag/Preis ↔ Klima/Biodiversität</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-9"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">Ökolandbau 10.9% (Ziel 30%). THG-Landwirtschaft: 61 Mio. t CO₂e. Insektensterben -75% Biomasse. Produktivität vs. Nachhaltigkeit.</div>
+                    </div>
+
+                    <!-- ZK 10 -->
+                    <div class="zk-card">
+                        <h4>10. Verfahren & Verwaltung</h4>
+                        <div class="zk-title">Beschleunigung ↔ Rechtsschutz/Beteiligung</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-10"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">Digitalisierung Verwaltung 42%. Planungsverfahren lange Dauer. Bürokratiekosten 67 Mrd. €/Jahr. Effizienz vs. Demokratie.</div>
+                    </div>
+
+                    <!-- ZK 11 -->
+                    <div class="zk-card">
+                        <h4>11. Sicherheit & Resilienz</h4>
+                        <div class="zk-title">Freiheit ↔ Vorsorge</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-11"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 3.0</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #27ae60; font-weight: bold;">Gap: 0.5</span>
+                        </div>
+                        <div class="zk-desc">Cybersicherheit mittel, Resilienz im Aufbau. Freiheit vs. Vorsorge aktuell ausbalanciert, aber Polykrise erfordert mehr Resilienz.</div>
+                    </div>
+
+                    <!-- ZK 12 -->
+                    <div class="zk-card">
+                        <h4>12. Migration & Fachkräfte</h4>
+                        <div class="zk-title">Steuerung ↔ Offenheit</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-12"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #f39c12; font-weight: bold;">Gap: 1.0</span>
+                        </div>
+                        <div class="zk-desc">Fachkräftelücke 1.8 Mio. Zuwanderung 2022: 1.5 Mio. Integration herausfordernd. Fachkräftebedarf vs. gesellschaftlicher Zusammenhalt.</div>
+                    </div>
+
+                    <!-- ZK 13 -->
+                    <div class="zk-card">
+                        <h4>13. Natur & Flächen</h4>
+                        <div class="zk-title">Ausbau (Wohnen/Energie) ↔ Biodiversität</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-13"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #e74c3c; font-weight: bold;">Gap: 1.5</span>
+                        </div>
+                        <div class="zk-desc">Flächenverbrauch 52 ha/Tag (Ziel <30). Versiegelung 6.5%. Artenschwund. Ausbaubedarf (Wohnen, Windkraft) vs. Ökosystemschutz.</div>
+                    </div>
+
+                    <!-- ZK 14 -->
+                    <div class="zk-card">
+                        <h4>14. Steuern & Finanzaufsicht</h4>
+                        <div class="zk-title">Steuergerechtigkeit ↔ Rechts-/Standortsicherheit</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-14"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.0</span>
+                            <span style="color: #f39c12; font-weight: bold;">Gap: 1.0</span>
+                        </div>
+                        <div class="zk-desc">Cum-Ex ungelöst, Steuerflucht Problem. Gerechtigkeit (Steuervermeidung bekämpfen) vs. Standortsicherheit (Überregulierung vermeiden). <em>(IST geschätzt)</em></div>
+                    </div>
+
+                    <!-- ZK 15 -->
+                    <div class="zk-card">
+                        <h4>15. Beratungsstaat & Intermediäre</h4>
+                        <div class="zk-title">demokratische Steuerung ↔ Abhängigkeit/Interessenkonflikte</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-15"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.0</span>
+                            <span>2030: 2.5</span>
+                            <span>2045: 3.0</span>
+                            <span style="color: #f39c12; font-weight: bold;">Gap: 1.0</span>
+                        </div>
+                        <div class="zk-desc">Beratungsabhängigkeit hoch, Interessenkonflikte. Demokratische Steuerung vs. Abhängigkeit von Intermediären (Consulting, Lobbyismus). <em>(IST geschätzt)</em></div>
+                    </div>
+
+                    <!-- ZK 16 -->
+                    <div class="zk-card">
+                        <h4>16. Kultur & Medien</h4>
+                        <div class="zk-title">E-Kultur (institutionell) ↔ Freie Szene</div>
+                        <div class="zk-mini-radar">
+                            <canvas id="mini-radar-16"></canvas>
+                        </div>
+                        <div class="zk-values">
+                            <span>IST: 2.5</span>
+                            <span>2030: 3.0</span>
+                            <span>2045: 3.5</span>
+                            <span style="color: #f39c12; font-weight: bold;">Gap: 1.0</span>
+                        </div>
+                        <div class="zk-desc">Kulturausgaben 13.5 Mrd. €. E-Kultur dominant (~85% Förderung), freie Szene prekär. Erhalt kulturellen Erbes vs. Innovation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: QUELLEN -->
+        <div id="tab-sources" class="tab-content">
+            <div class="content-section">
+                <h2>📚 Quellen & Methodik</h2>
+                
+                <div class="info-box">
+                    <h4>Methodischer Ansatz</h4>
+                    <p>Die IST-Werte 2025 basieren auf aktuellen Bundesstatistiken, Fachstudien und Expertenschätzungen (Stand: 2023-2024). Die Zielwerte 2030 und 2045 orientieren sich an den "Neue Horizonte 2045" Szenarien (D2030 e.V.), UN SDGs und Bundeszielen.</p>
+                </div>
+
+                <h3>📊 Datengrundlage IST 2025 - Detaillierte Quellenangaben</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Zielkonflikt</th>
+                            <th style="width: 8%;">IST</th>
+                            <th style="width: 52%;">Quellen mit URLs</th>
+                            <th style="width: 20%;">Qualität</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Wasser & Qualität</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.umweltbundesamt.de/themen/wasser/trinkwasser/haeufig-gestellte-fragen-zu-pfas-im-trinkwasser" target="_blank">UBA: PFAS im Trinkwasser (2024)</a><br>
+                                • <a href="https://eur-lex.europa.eu/eli/dir/2020/2184" target="_blank">EU-Trinkwasserrichtlinie 2020/2184</a><br>
+                                • <a href="https://www.umweltbundesamt.de/publikationen/schwerpunkte-2024" target="_blank">UBA Schwerpunkte 2024</a>
+                            </td>
+                            <td>⚠️ Geschätzt (keine direkten Indikatoren)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Wohnen</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Bauen/_inhalt.html" target="_blank">Destatis: Baufertigstellungen 2023</a><br>
+                                • <a href="https://www.umweltbundesamt.de/daten/klima/treibhausgas-emissionen-in-deutschland#emissionsentwicklung" target="_blank">UBA: THG-Emissionen Gebäudesektor (112 Mio. t CO₂e)</a><br>
+                                • <a href="https://www.bmwk.de/Redaktion/DE/Dossier/energiewende-im-gebaeudesektor.html" target="_blank">BMWK: Sanierungsrate (~1%/Jahr)</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Mobilität</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.mobilitaet-in-deutschland.de" target="_blank">MiD 2023: Mobilität in Deutschland</a><br>
+                                • <a href="https://www.umweltbundesamt.de/daten/verkehr/emissionen-des-verkehrs" target="_blank">UBA: Verkehrsemissionen (148 Mio. t CO₂e)</a><br>
+                                • <a href="https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Transport-Verkehr/_inhalt.html" target="_blank">Destatis: Verkehrsstatistik</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Energie & Netze</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.bmwk.de/Redaktion/DE/Artikel/Energie/energiedaten-gesamtausgabe.html" target="_blank">BMWK: Energiedaten 2024</a><br>
+                                • <a href="https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien" target="_blank">UBA: Erneuerbare Energien (aktuell 52%)</a><br>
+                                • <a href="https://ag-energiebilanzen.de" target="_blank">AGEB: Energiebilanzen</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Wirtschaft & Industrie</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.umweltbundesamt.de/daten/klima/treibhausgas-emissionen-in-deutschland#industrie" target="_blank">UBA: Industrie-Emissionen (181 Mio. t CO₂e)</a><br>
+                                • <a href="https://www.agora-energiewende.de/veroeffentlichungen/klimaneutrale-industrie" target="_blank">Agora Industrie: Klimaneutrale Industrie</a><br>
+                                • <a href="https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Industrie-Verarbeitendes-Gewerbe/_inhalt.html" target="_blank">Destatis: Industrieproduktion</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6. Gesundheit & Soziales</strong></td>
+                            <td>3.0</td>
+                            <td>
+                                • <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/_inhalt.html" target="_blank">Destatis: Gesundheitsausgaben (13,2% BIP, 474 Mrd. €)</a><br>
+                                • <a href="https://www.kbv.de/html/aerztemangel.php" target="_blank">KBV: Ärztemangel Studie 2023</a><br>
+                                • <a href="https://www.bundesgesundheitsministerium.de" target="_blank">BMG: Gesundheitsversorgung</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7. Bildung & Forschung</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/_inhalt.html" target="_blank">Destatis: Bildungsausgaben (4,7% BIP)</a><br>
+                                • <a href="https://www.kmk.org" target="_blank">KMK: Bildungsbericht 2024</a><br>
+                                • <a href="https://www.oecd.org/pisa/" target="_blank">OECD PISA 2022</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>8. Digitales & Datenräume</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/IT-Nutzung/_inhalt.html" target="_blank">Destatis: Digitalisierung in Deutschland</a><br>
+                                • <a href="https://www.bmwk.de/Redaktion/DE/Dossier/digitalisierung.html" target="_blank">BMWK: Digitalisierungsindex</a><br>
+                                • <a href="https://digital-strategy.ec.europa.eu/en/policies/desi" target="_blank">EU: DESI Index 2024</a>
+                            </td>
+                            <td>⚠️ Mittel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>9. Landwirtschaft & Ernährung</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.bmel.de/DE/themen/landwirtschaft/oekologischer-landbau/oekologischer-landbau_node.html" target="_blank">BMEL: Ökolandbau (aktuell 11,2%)</a><br>
+                                • <a href="https://www.umweltbundesamt.de/daten/land-forstwirtschaft/beitrag-der-landwirtschaft-zu-den-treibhausgas" target="_blank">UBA: THG-Landwirtschaft (56 Mio. t CO₂e)</a><br>
+                                • <a href="https://www.bmel-statistik.de" target="_blank">BMEL: Agrarstatistik 2024</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10. Verfahren & Verwaltung</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.bmi.bund.de/DE/themen/moderne-verwaltung/verwaltungsmodernisierung/verwaltungsmodernisierung-node.html" target="_blank">BMI: Digitalisierung Verwaltung (42%)</a><br>
+                                • <a href="https://www.normenkontrollrat.bund.de" target="_blank">Normenkontrollrat: Bürokratiekosten (67 Mrd. €/Jahr)</a><br>
+                                • <a href="https://www.bundesregierung.de/breg-de/suche/planungsbeschleunigung" target="_blank">Bundesregierung: Planungsbeschleunigung</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>11. Sicherheit & Resilienz</strong></td>
+                            <td>3.0</td>
+                            <td>
+                                • <a href="https://www.bsi.bund.de/DE/Service-Navi/Publikationen/Lagebericht/lagebericht_node.html" target="_blank">BSI: Lagebericht IT-Sicherheit 2024</a><br>
+                                • <a href="https://www.bbk.bund.de" target="_blank">BBK: Katastrophenschutz</a><br>
+                                • <a href="https://www.bmwk.de/Redaktion/DE/Dossier/kritische-infrastrukturen.html" target="_blank">BMWK: KRITIS 2.0</a>
+                            </td>
+                            <td>⚠️ Mittel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>12. Migration & Fachkräfte</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.bamf.de/DE/Themen/Statistik/statistik-node.html" target="_blank">BAMF: Migrationsstatistik 2023</a><br>
+                                • <a href="https://www.iab.de/389/section.aspx/Rubrik/fachkraefteengpaesse" target="_blank">IAB: Fachkräftelücke (1,8 Mio.)</a><br>
+                                • <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Migration-Integration/_inhalt.html" target="_blank">Destatis: Zuwanderung 2022 (1,5 Mio.)</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr>
+                            <td><strong>13. Natur & Flächen</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Landwirtschaft-Forstwirtschaft-Fischerei/Flaechennutzung/_inhalt.html" target="_blank">Destatis: Flächenverbrauch (52 ha/Tag, Ziel <30)</a><br>
+                                • <a href="https://www.umweltbundesamt.de/daten/flaeche-boden-land-oekosysteme" target="_blank">UBA: Versiegelung (6,5%)</a><br>
+                                • <a href="https://www.bfn.de/rote-listen" target="_blank">BfN: Rote Liste bedrohter Arten</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                        <tr style="background: #fff3cd;">
+                            <td><strong>14. Steuern & Finanzaufsicht</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Steuern/steuerpolitik.html" target="_blank">BMF: Steuerpolitik</a><br>
+                                • <a href="https://www.bafin.de" target="_blank">BaFin: Finanzaufsicht</a><br>
+                                • <strong>⚠️ IST-Wert geschätzt</strong> (Cum-Ex ungelöst, Steuerflucht-Problematik)
+                            </td>
+                            <td>⚠️ Geschätzt</td>
+                        </tr>
+                        <tr style="background: #fff3cd;">
+                            <td><strong>15. Beratungsstaat & Intermediäre</strong></td>
+                            <td>2.0</td>
+                            <td>
+                                • <a href="https://www.lobbyregister.bundestag.de" target="_blank">Lobbyregister Bundestag</a><br>
+                                • <a href="https://www.abgeordnetenwatch.de" target="_blank">Abgeordnetenwatch</a><br>
+                                • <strong>⚠️ IST-Wert geschätzt</strong> (Beratungsabhängigkeit hoch, keine direkten Indikatoren)
+                            </td>
+                            <td>⚠️ Geschätzt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>16. Kultur & Medien</strong></td>
+                            <td>2.5</td>
+                            <td>
+                                • <a href="https://www.kulturrat.de/themen/kulturstatistik/" target="_blank">Deutscher Kulturrat: Kulturstatistik (13,5 Mrd. €)</a><br>
+                                • <a href="https://www.bundesregierung.de/breg-de/bundesregierung/staatsministerin-fuer-kultur-und-medien" target="_blank">BKM: Kulturförderung</a><br>
+                                • <a href="https://darstellende-kuenste.de" target="_blank">BFDK: Freie Darstellende Künste</a>
+                            </td>
+                            <td>✅ Gut</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box" style="margin-top: 30px;">
+                    <h4>⚠️ Hinweis: 3 geschätzte IST-Werte</h4>
+                    <p><strong>Wasser & Qualität, Steuern & Finanzaufsicht, Beratungsstaat & Intermediäre</strong> haben geschätzte IST-Werte (jeweils 2.0), da hier keine direkten quantitativen Indikatoren verfügbar sind.</p>
+                    <p><strong>Begründung:</strong> Bei diesen ZK gibt es keine etablierten Bundesstatistiken für die Bewertung auf der 1-5 Skala. Die Werte wurden basierend auf qualitativen Einschätzungen und Rückrechnung von den Zielwerten 2030/2045 ermittelt.</p>
+                    <p><strong>Empfehlung:</strong> Validierung durch Experteninterviews, Delphi-Befragungen oder Entwicklung spezifischer Indikatoren.</p>
+                </div>
+
+                <h3 style="margin-top: 40px;">🎯 Zielwerte 2030 & 2045</h3>
+                <p>Die Zielwerte basieren auf:</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>D2030 "Neue Horizonte 2045" Szenarien</strong> (Fink et al. 2024) - <a href="https://d2030.de" target="_blank">d2030.de</a></li>
+                    <li><strong>UN SDGs (Sustainable Development Goals)</strong> - <a href="https://sdgs.un.org/goals" target="_blank">UN Agenda 2030</a></li>
+                    <li><strong>Klimaschutzgesetz</strong> - <a href="https://www.bmuv.de/themen/klimaschutz/klimaschutzgesetz" target="_blank">KSG 2021 (novelliert 2024)</a></li>
+                    <li><strong>Nationale Nachhaltigkeitsstrategie</strong> - <a href="https://www.bundesregierung.de/breg-de/themen/nachhaltigkeitspolitik/nachhaltigkeitsstrategie" target="_blank">DNS 2024</a></li>
+                    <li><strong>WBGU Gutachten</strong> - <a href="https://www.wbgu.de" target="_blank">Wissenschaftlicher Beirat Globale Umweltveränderungen</a></li>
+                    <li><strong>Agora Energiewende / Verkehrswende / Industrie</strong> - <a href="https://www.agora-energiewende.de" target="_blank">agora-energiewende.de</a></li>
+                    <li><strong>Fraunhofer ISI / IAO Studien</strong> - <a href="https://www.isi.fraunhofer.de" target="_blank">Transformationsforschung</a></li>
+                </ul>
+
+                <h3 style="margin-top: 40px;">📐 Skalierungslogik (1-5)</h3>
+                <p>Die Bewertung erfolgt nach folgender Logik:</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>1:</strong> Pol A stark dominant (80-100% Ausrichtung auf Pol A)</li>
+                    <li><strong>2:</strong> Pol A leicht dominant (60-80%)</li>
+                    <li><strong>3:</strong> Ausgewogen / produktive Balance (40-60%)</li>
+                    <li><strong>4:</strong> Pol B leicht dominant (60-80% Ausrichtung auf Pol B)</li>
+                    <li><strong>5:</strong> Pol B stark dominant (80-100%)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Beispiel Mobilität:</strong> IST 2.0 = Modal Split MIV 75% (Pol A: Autoflächen) → Ziel 4.0 = Aufenthaltsqualität hat Vorrang (Pol B)</p>
+
+                <h3 style="margin-top: 40px;">🔬 Konzeptionelle Grundlagen: Radikale Kompromisse</h3>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Burmeister, K. (2024):</strong> "Transformation ohne Masterplan - Radikale Kompromisse in der Polykrise"</li>
+                    <li><strong>KIZ-Projekt (HTW Berlin, DFKI, Fraunhofer IAO):</strong> Ko-evolutionäre Intelligenz für transformative urbane Zukünfte</li>
+                    <li><strong>D2030 e.V.:</strong> Neue Horizonte 2045 - Szenarien & Methodik</li>
+                    <li><strong>Transitionsforschung:</strong> Geels, F. W. (2002): Multi-Level Perspective on Transitions</li>
+                    <li><strong>Deliberative Demokratie:</strong> Fishkin, J. S. (2018): Democracy When the People Are Thinking</li>
+                </ul>
+
+                <h3 style="margin-top: 40px;">📅 Stand der Daten</h3>
+                <p><strong>Recherche-Zeitraum:</strong> Oktober - November 2024<br>
+                <strong>Daten-Stand:</strong> Überwiegend 2023, teilweise 2024<br>
+                <strong>Version:</strong> 4.0 ULTIMATE (November 2025)<br>
+                <strong>Erstellt von:</strong> Klaus Burmeister, D2030 e.V.</p>                <h3>Übergeordnete Quellen</h3>
+                <ol>
+                    <li><strong>Fink, A., Burmeister, K., Rammig, H., Schulz-Montag, B. (2024):</strong> <em>Neue Horizonte 2045 – Mission für Deutschland.</em> Berlin: D2030 e.V.<br>
+                    <a href="https://www.d2030.de/wp-content/uploads/2024/09/D2045_Neue-Horizonte-Studienreport.pdf" target="_blank">→ PDF Download</a></li>
+                    
+                    <li><strong>Burmeister, K. (2025):</strong> <em>Transformation ohne Masterplan – Mit Zielkonflikten und Radikalen Kompromissen Zukunft gestalten.</em> D2030 e.V.</li>
+                    
+                    <li><strong>UN (2015):</strong> <em>Agenda 2030 für nachhaltige Entwicklung – 17 SDGs.</em><br>
+                    <a href="https://sdgs.un.org/goals" target="_blank">→ Website</a></li>
+                    
+                    <li><strong>Bundesregierung (2021):</strong> <em>Deutsche Nachhaltigkeitsstrategie – Weiterentwicklung 2021.</em></li>
+                    
+                    <li><strong>Klimaschutzgesetz (KSG):</strong> Ziele 2030 (-65% THG) und 2045 (Klimaneutralität)</li>
+                </ol>
+
+                <h3>Methodik: Skaleninterpretation</h3>
+                <p>Die Skala 1-5 beschreibt, welcher Pol des Zielkonflikts aktuell dominiert bzw. in Zukunft dominieren sollte:</p>
+                <ul>
+                    <li><strong>1:</strong> Pol A stark dominant (z.B. Wohnen: Nur Neubau, keine Sanierung)</li>
+                    <li><strong>2:</strong> Pol A dominant, aber Bewegung erkennbar</li>
+                    <li><strong>3:</strong> Ausgewogen / produktive Balance (Idealfall für viele ZK)</li>
+                    <li><strong>4:</strong> Pol B dominant, aber Pol A noch relevant</li>
+                    <li><strong>5:</strong> Pol B stark dominant (z.B. Energie: Nur noch EE, keine fossilen)</li>
+                </ul>
+                <p><strong>Wichtig:</strong> 5 bedeutet NICHT „perfekt", sondern maximale Verschiebung zu Pol B. Oft ist 3-4 das Ziel (produktive Balance).</p>
+
+                <h3>Vollständige Quellenliste</h3>
+                <p>Eine detaillierte Liste aller Quellen (126 Bundesindikatoren, Studien, Fallbeispiele) findet sich in:</p>
+                <ul>
+                    <li><strong>ZK_UEBERSICHT_Literatur_Quellen.md</strong> (separates Dokument)</li>
+                    <li><strong>ZK_MASTER_16_Vereinheitlicht_07Nov2025.xlsx</strong> (Sheet "Quellen")</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 5: ERGEBNIS & AUSBLICK -->
+        <div id="tab-outlook" class="tab-content">
+            <div class="content-section">
+                <h2>🎯 Vorläufiges Ergebnis</h2>
+                
+                <h3>Was zeigt die Gap-Analyse?</h3>
+                <p>Die durchschnittliche Lücke zwischen IST 2025 (Ø 2.34) und Ziel 2045 (Ø 3.62) beträgt <strong>1.28 Punkte</strong>. Das entspricht einem <strong>mittleren bis großen Transformationsbedarf</strong> über alle 16 Zielkonflikte hinweg.</p>
+
+                <div class="success-box">
+                    <h4>✅ Positive Erkenntnisse:</h4>
+                    <ul>
+                        <li><strong>Alle ZK erreichbar:</strong> Kein ZK hat einen unrealistischen Gap (alle ≤2.0)</li>
+                        <li><strong>Diversität:</strong> Unterschiedlicher Transformationsbedarf erkennbar (Gap 0.5-2.0)</li>
+                        <li><strong>2 ZK fast ausgeglichen:</strong> Gesundheit & Soziales (Gap 0.5), Sicherheit & Resilienz (Gap 0.5)</li>
+                        <li><strong>NH 2045-kompatibel:</strong> Zielwerte 2045 passen zum "Radikale Kompromisse"-Szenario (3-4)</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Herausforderungen:</h4>
+                    <ul>
+                        <li><strong>2 ZK mit Gap 2.0:</strong> Mobilität und Energie & Netze – größte Transformationsherausforderungen</li>
+                        <li><strong>7 ZK mit Gap 1.5:</strong> Wohnen, Wirtschaft, Digitales, Landwirtschaft, Verfahren, Natur – mittlerer Transformationsbedarf</li>
+                        <li><strong>Zeitdruck:</strong> Nur 5 Jahre bis Review 2030 (Fortschritt bisher: Ø +0.5 Punkte)</li>
+                    </ul>
+                </div>
+
+                <h3>Top 5 Transformationsbedarfe (nach Gap):</h3>
+                <ol>
+                    <li><strong>Mobilität:</strong> Gap 2.0 (IST 2.0 → Ziel 4.0) – Umbau Verkehrssystem nötig</li>
+                    <li><strong>Energie & Netze:</strong> Gap 2.0 (IST 2.5 → Ziel 4.5) – Ausbautempo vs. Akzeptanz</li>
+                    <li><strong>Wohnen:</strong> Gap 1.5 (IST 2.5 → Ziel 4.0) – Sanierung vs. Bezahlbarkeit</li>
+                    <li><strong>Wasser & Qualität:</strong> Gap 1.5 (IST 2.0 → Ziel 3.5) – PFAS-Problematik</li>
+                    <li><strong>5 ZK mit Gap 1.5:</strong> Wirtschaft, Digitales, Landwirtschaft, Verfahren, Natur</li>
+                </ol>
+
+                <h3>Was bedeutet das für Radikale Kompromisse?</h3>
+                <p>Die Gap-Analyse zeigt: <strong>Transformation ist nötig, aber machbar</strong>. Radikale Kompromisse setzen genau hier an:</p>
+                <ul>
+                    <li>Bei <strong>großen Gaps (2.0):</strong> Mehrere RK nötig, die sich ergänzen</li>
+                    <li>Bei <strong>mittleren Gaps (1.0-1.5):</strong> 1-2 ambitionierte RK können ausreichen</li>
+                    <li>Bei <strong>kleinen Gaps (0.5):</strong> RK als „Feintuning" und Absicherung</li>
+                </ul>
+
+                <h2>🚀 Wie geht es weiter?</h2>
+                
+                <h3>Phase 4: RK-Entwicklung (in Arbeit)</h3>
+                <p>Für jeden der 16 Zielkonflikte werden <strong>2-3 konkrete Radikale Kompromisse</strong> entwickelt, die zeigen:</p>
+                <ul>
+                    <li><strong>WIE</strong> kann der Gap geschlossen werden?</li>
+                    <li><strong>Welche</strong> temporären Arrangements sind möglich?</li>
+                    <li><strong>Wer</strong> gibt was auf? (Zumutbarkeit)</li>
+                    <li><strong>Wie</strong> wird legitimiert? (Bürgerräte, Reallabore, Enquete)</li>
+                    <li><strong>Wie</strong> wird überprüft? (Monitoring, Review 2030)</li>
+                </ul>
+
+                <div class="info-box">
+                    <h4>📋 Beispiel: ZK 1 Wohnen (Gap 1.5)</h4>
+                    <p><strong>RK 1a: Bestandsvorrang mit Neubau-Notfall</strong></p>
+                    <ul>
+                        <li>70% Förderung Sanierung, 30% Neubau</li>
+                        <li>Notfall-Klausel bei Wohnungsnot (<2% Leerstand → 50:50 für 3 Jahre)</li>
+                        <li>Review 2030, Perspektive 2045</li>
+                        <li>Legitimation: Enquete + Bürgerrat Wohnen</li>
+                        <li>Wirkung: +1.0 (2.5→3.5 bis 2030)</li>
+                    </ul>
+                    <p><em>Details zu allen RK folgen in Phase 4.</em></p>
+                </div>
+
+                <h3>Geplante Erweiterungen:</h3>
+                <ol>
+                    <li><strong>RK-Datenbank:</strong> 16 ZK × 2-3 RK = ~40 konkrete Kompromisse</li>
+                    <li><strong>Tool-Update:</strong> Interaktive Auswahl von RK-Kombinationen im Radar-Chart</li>
+                    <li><strong>Fallbeispiele:</strong> Detaillierte Analyse erfolgreicher RK (Tempelhofer Feld, Schweizer Gebäudeprogramm, etc.)</li>
+                    <li><strong>Methodenpapier:</strong> Wie wurden RK entwickelt? Validierung?</li>
+                    <li><strong>Workshop-Materialien:</strong> Für Nutzung in partizipativen Prozessen</li>
+                </ol>
+
+                <h3>Nutzung & Weiterentwicklung</h3>
+                <p>Dieses Tool ist <strong>work in progress</strong>. Feedback willkommen!</p>
+                <ul>
+                    <li><strong>Für Forschung:</strong> Daten als JSON exportierbar (Button im Tool)</li>
+                    <li><strong>Für Workshops:</strong> Interaktive Exploration alternativer Szenarien</li>
+                    <li><strong>Für Politik:</strong> Evidenzbasierte Diskussion von Zielkonflikten</li>
+                </ul>
+
+                <h3>Kontakt & Mitwirkung</h3>
+                <p>Projekt: <strong>D2030 e.V. – Neue Horizonte 2045</strong></p>
+                <p>Konzept & Durchführung: <strong>Klaus Burmeister</strong> (Foresight & Partizipative Forschung)</p>
+                <p>
+                    <a href="https://d2030.de/neue-horizonte/" target="_blank">→ Projektwebsite</a> | 
+                    <a href="https://www.scmi.de/images/downloads/D2045_Neue-Horizonte-Studienreport.pdf" target="_blank">→ Studienreport (PDF)</a>
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Radikale Kompromisse</strong> – Transformation durch produktive Zielkonflikte</p>
+            <p>Ein Projekt von D2030 e.V. im Rahmen der "Neue Horizonte 2045" Szenarien</p>
+            <div class="footer-links">
+                <a href="https://d2030.de/neue-horizonte/" target="_blank">→ D2030 Neue Horizonte</a>
+                <a href="https://www.scmi.de/images/downloads/D2045_Neue-Horizonte-Studienreport.pdf" target="_blank">→ Studienreport (PDF)</a>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.85em;">Stand: November 2025 | Version 2.1 (16 ZK mit Kontext) | <a href="#" style="color: #667eea;">Impressum</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // 16 Zielkonflikte Daten
+        const zkData = [
+            {id: 1, name: "Wasser & Qualität", ist: 2.0, k2030: 2.5, z2045: 3.5},
+            {id: 2, name: "Wohnen", ist: 2.5, k2030: 3.0, z2045: 4.0},
+            {id: 3, name: "Mobilität", ist: 2.0, k2030: 2.5, z2045: 4.0},
+            {id: 4, name: "Energie & Netze", ist: 2.5, k2030: 3.5, z2045: 4.5},
+            {id: 5, name: "Wirtschaft & Industrie", ist: 2.5, k2030: 3.0, z2045: 4.0},
+            {id: 6, name: "Gesundheit & Soziales", ist: 3.0, k2030: 3.0, z2045: 3.5},
+            {id: 7, name: "Bildung & Forschung", ist: 2.5, k2030: 3.0, z2045: 3.5},
+            {id: 8, name: "Digitales & Datenräume", ist: 2.5, k2030: 3.5, z2045: 4.0},
+            {id: 9, name: "Landwirtschaft & Ernährung", ist: 2.0, k2030: 2.5, z2045: 3.5},
+            {id: 10, name: "Verfahren & Verwaltung", ist: 2.0, k2030: 2.5, z2045: 3.5},
+            {id: 11, name: "Sicherheit & Resilienz", ist: 3.0, k2030: 3.0, z2045: 3.5},
+            {id: 12, name: "Migration & Fachkräfte", ist: 2.5, k2030: 3.0, z2045: 3.5},
+            {id: 13, name: "Natur & Flächen", ist: 2.0, k2030: 2.5, z2045: 3.5},
+            {id: 14, name: "Steuern & Finanzaufsicht", ist: 2.0, k2030: 2.5, z2045: 3.0},
+            {id: 15, name: "Beratungsstaat & Intermediäre", ist: 2.0, k2030: 2.5, z2045: 3.0},
+            {id: 16, name: "Kultur & Medien", ist: 2.5, k2030: 3.0, z2045: 3.5}
+        ];
+
+        // RADIKALE KOMPROMISSE - Datenbank
+        const rkData = {
+            2: [ // ZK 2: Wohnen
+                {
+                    id: "RK_W1",
+                    titel: "Sanierungsumlage mit Härtefallklausel",
+                    kurz: "Klimasanierung auf Mieter*innen umgelegt (max. 2€/m²), Härtefallklausel <60% Median + 50% Zuschuss",
+                    gap_schliessung: 0.60,
+                    laufzeit: "2025-2035",
+                    nebenwirkungen: { 4: 0.25, 5: 0.10 },
+                    erklaerung: {
+                        satz: "Mieter*innen zahlen für Klimasanierung (max. 2€/m²), aber mit Härtefallschutz für Geringverdiener und staatlichem Zuschuss.",
+                        hauptwirkung: "Sanierungsrate verdoppelt sich von 1% auf 2% pro Jahr. Gebäudeemissionen sinken um 40 Mio. t CO₂e. Warmmieten steigen moderat (+max. 2€/m²), aber Heizkosten sinken langfristig um bis zu 30%.",
+                        kompromiss: [
+                            "Mieter*innen zahlen Umlage → aber sparen langfristig durch niedrigere Heizkosten",
+                            "Eigentümer*innen müssen sanieren → aber dürfen 50% der Kosten umlegen",
+                            "Geringverdiener (<60% Median) sind geschützt durch Härtefallklausel + staatlichen Zuschuss",
+                            "Klimaziel wird erreicht ohne soziale Verdrängung"
+                        ],
+                        zeitrahmen: "2025-2035 (10 Jahre), dann automatisches Auslaufen. Review-Punkte 2028 und 2032 für Anpassungen."
+                    }
+                },
+                {
+                    id: "RK_W2",
+                    titel: "Mietendeckel mit Klima-Bonus",
+                    kurz: "Mietpreisbremse bundesweit (+3%/Jahr), +1€/m² bei KfW 55 + Solar",
+                    gap_schliessung: 0.45,
+                    laufzeit: "2026-2038",
+                    nebenwirkungen: { 4: 0.20, 13: 0.05 },
+                    erklaerung: {
+                        satz: "Mieten dürfen max. 3% pro Jahr steigen, aber Eigentümer*innen bekommen Klima-Bonus (+1€/m²) wenn sie auf KfW 55-Standard sanieren.",
+                        hauptwirkung: "Mietexplosion wird gestoppt (max. +3%/Jahr statt +6-8%). Gleichzeitig Anreiz für Klimasanierung + Solaranlagen. 30% mehr KfW 55-Sanierungen bis 2038.",
+                        kompromiss: [
+                            "Mieter*innen: Geschützt vor Mietexplosion → können sich Wohnen weiter leisten",
+                            "Eigentümer*innen: Deckel akzeptieren → aber bekommen Bonus bei Klimainvestition",
+                            "Beide: Planungssicherheit für 12 Jahre"
+                        ],
+                        zeitrahmen: "2026-2038 (12 Jahre), dann Evaluation. Regional anpassbar."
+                    }
+                },
+                {
+                    id: "RK_W3",
+                    titel: "Bestandsschutz mit Verfallsdatum",
+                    kurz: "Gebäude <KfW 100 bis 2040 erlaubt, danach Sanierungspflicht",
+                    gap_schliessung: 0.50,
+                    laufzeit: "2025-2040",
+                    nebenwirkungen: { 4: 0.30, 5: 0.15, 9: -0.05 },
+                    erklaerung: {
+                        satz: "Unsanierte Gebäude bekommen 15 Jahre Aufschub, aber 2040 endet der Bestandsschutz automatisch – dann Sanierungspflicht oder Abriss.",
+                        hauptwirkung: "8 Mio. Gebäude müssen bis 2040 saniert werden. Massiver Schub für Bauindustrie. Heizenergiebedarf sinkt um 60%. Sozialhärtefälle werden staatlich unterstützt.",
+                        kompromiss: [
+                            "Eigentümer*innen: 15 Jahre Zeit zum Planen → keine Panik, keine Überforderung",
+                            "Klimaschutz: Klares Enddatum → Planungssicherheit, kein Hinauszögern",
+                            "Härtefälle: Staatlicher Aufkauf + Sanierung bei Überforderung",
+                            "Denkmalschutz: Ausnahmen möglich"
+                        ],
+                        zeitrahmen: "2025-2040 (15 Jahre Übergangsfrist). Verschiebung um 5 Jahre bei Materialmangel möglich."
+                    }
+                }
+            ],
+            4: [ // ZK 4: Energie & Netze
+                {
+                    id: "RK_E1",
+                    titel: "Netz-Turbo mit Bürger*innen-Beirat",
+                    kurz: "Planungsverfahren Stromtrassen auf 18 Monate verkürzt, verpflichtender Beirat mit Vetorecht",
+                    gap_schliessung: 0.65,
+                    laufzeit: "2025-2040",
+                    nebenwirkungen: { 2: 0.10, 5: 0.15, 10: 0.20 },
+                    erklaerung: {
+                        satz: "Statt ewig auf Stromtrassen zu warten (aktuell 8 Jahre!), bauen wir sie in 18 Monaten – aber Bürger*innen bekommen echtes Vetorecht bei der Trassenführung.",
+                        hauptwirkung: "7.700 km neue Stromleitungen bis 2040 (aktuell: massive Verzögerung). Erneuerbare Energien können endlich ans Netz. Industrie bekommt grünen Strom.",
+                        kompromiss: [
+                            "Bürger*innen: Akzeptieren schnelleren Ausbau → weil sie über Route mitentscheiden (Vetorecht!)",
+                            "Netzbetreiber: Akzeptieren Beiräte → weil Verfahren endlich vorangehen",
+                            "Bei Veto: Alternative Trassenführung ist Pflicht (Erdkabel, Umwege)",
+                            "Entschädigung für Wertverlust"
+                        ],
+                        zeitrahmen: "2025-2040 (15 Jahre), dann Rückkehr zu regulären Verfahren oder Verlängerung."
+                    }
+                },
+                {
+                    id: "RK_E2",
+                    titel: "Erneuerbare-Zwang mit Ausgleichszahlung",
+                    kurz: "Jede Gemeinde 2% Fläche für Wind/Solar, Gemeinde erhält 20% Stromerlöse",
+                    gap_schliessung: 0.55,
+                    laufzeit: "2026-2045",
+                    nebenwirkungen: { 13: -0.10, 5: 0.10, 10: 0.05 },
+                    erklaerung: {
+                        satz: "Jede Gemeinde MUSS 2% ihrer Fläche für Windräder/Solarparks bereitstellen, bekommt dafür aber 20% der Stromerlöse (bisher: 0%).",
+                        hauptwirkung: "100% erneuerbare Energien bis 2045 wird möglich. 72.000 Hektar neue Flächen. Gemeinden verdienen mit (lokale Wertschöpfung statt Konzerngewinne).",
+                        kompromiss: [
+                            "Gemeinden: Müssen Fläche abgeben → aber profitieren finanziell (20% der Erlöse!)",
+                            "Bürger*innen: Windräder vor der Tür → aber Kommune hat Geld für Kita, Schwimmbad, etc.",
+                            "Gestaltungsfreiheit: Gemeinde wählt WELCHE Flächen (nicht von oben verordnet)",
+                            "Härtefallregelung: Bergregionen nur 1% statt 2%"
+                        ],
+                        zeitrahmen: "2026-2045. Nach Erreichen 100% Erneuerbare: Neuregelung."
+                    }
+                },
+                {
+                    id: "RK_E3",
+                    titel: "Dezentrale-Energie-Bevorzugung mit Frist",
+                    kurz: "Bis 2035: Dezentrale Lösungen bevorzugt gefördert, ab 2035 Gleichbehandlung",
+                    gap_schliessung: 0.50,
+                    laufzeit: "2025-2035",
+                    nebenwirkungen: { 2: 0.15, 8: 0.10, 11: 0.10 },
+                    erklaerung: {
+                        satz: "Quartiersspeicher, lokale Netze und Solaranlagen bekommen 10 Jahre lang Vorrang bei Förderung – danach Gleichbehandlung mit zentralen Lösungen.",
+                        hauptwirkung: "200 Quartiere mit eigenen Speichern. Bürger*innen werden 'Prosumer' (produzieren + verbrauchen). Stromnetze werden entlastet. Resilienz steigt (bei Blackout: Quartier läuft weiter).",
+                        kompromiss: [
+                            "Dezentral-Fans: Bekommen 10 Jahre Vorrang → können Konzept beweisen",
+                            "Zentral-Lobby: Muss zurückstecken → aber nur befristet (2035 Ende)",
+                            "Bürger*innen: Günstigerer Strom durch lokale Produktion",
+                            "Wenn zu teuer (>20% vs. zentral): Förderung wird angepasst"
+                        ],
+                        zeitrahmen: "2025-2035 (10 Jahre Sonderstatus). Evaluation 2028 und 2032."
+                    }
+                }
+            ]
+        };
+
+        // Aktive RK-Auswahl (Tracking)
+        let activeRKs = {
+            2: null,  // ZK 2: Keine RK aktiv
+            4: null   // ZK 4: Keine RK aktiv
+        };
+
+        let chart;
+        let visibleVis = true;
+        let originalZ2045Values = {}; // Speichert Original-Zielwerte für Vorher/Nachher-Vergleich
+
+        // TAB SWITCHING
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Initialize chart if tool tab selected
+            if (tabName === 'tool' && !chart) {
+                initSliders();
+                initChart();
+                updateGapAnalysis();
+            }
+            
+            // Initialize mini radars if ZK details tab selected
+            if (tabName === 'zk-details') {
+                // Use setTimeout to ensure DOM is ready
+                setTimeout(initMiniRadars, 100);
+            }
+        }
+
+        function initSliders() {
+            const container = document.getElementById('sliders');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            zkData.forEach((zk, idx) => {
+                const sliderDiv = document.createElement('div');
+                sliderDiv.style.marginBottom = '15px';
+                sliderDiv.style.padding = '10px';
+                sliderDiv.style.background = '#f8f9fa';
+                sliderDiv.style.borderRadius = '8px';
+                
+                sliderDiv.innerHTML = `
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">
+                        ${zk.id}. ${zk.name}
+                        <span style="float: right; color: #667eea;">
+                            IST: ${zk.ist} | 2030: ${zk.k2030} | 2045: <span id="val-${idx}">${zk.z2045}</span>
+                        </span>
+                    </label>
+                    <input type="range" min="1" max="5" step="0.5" value="${zk.z2045}" 
+                           id="slider-${idx}" 
+                           style="width: 100%; cursor: pointer;"
+                           oninput="updateChart()">
+                `;
+                
+                container.appendChild(sliderDiv);
+            });
+        }
+
+        // TRANSFORMATIONSPFADE - Exemplarische Szenarien
+        const transformationspfade = {
+            moderat: {
+                name: "Moderat",
+                beschreibung: "Schrittweise, sozial verträglich - Fokus auf Energie und Wohnen",
+                farbe: "#f39c12",
+                rk_auswahl: {
+                    2: 1,
+                    4: 2
+                },
+                gap_schließung_default: 0.47,
+                synergien: {
+                    "4->2": 0.05
+                }
+            },
+            
+            schnell: {
+                name: "Ambitioniert",
+                beschreibung: "Maximale Wirkung - Alle Bereiche parallel",
+                farbe: "#e74c3c",
+                rk_auswahl: {
+                    2: 0,
+                    4: 0
+                },
+                gap_schließung_default: 0.68,
+                synergien: {
+                    "4->2": 0.10,
+                    "4->3": 0.08,
+                    "2->3": 0.05
+                }
+            },
+            
+            bdi: {
+                name: "BDI",
+                beschreibung: "Wirtschaftsorientiert - Fokus auf Industrie",
+                farbe: "#3498db",
+                rk_auswahl: {
+                    4: 1
+                },
+                gap_schließung_default: 0.35,
+                synergien: {
+                    "4->5": 0.15
+                }
+            },
+            
+            wbgu: {
+                name: "WBGU",
+                beschreibung: "Wissenschaftsbasiert - Maximale Klimawirkung",
+                farbe: "#27ae60",
+                rk_auswahl: {
+                    2: 0,
+                    4: 0
+                },
+                gap_schließung_default: 0.75,
+                synergien: {
+                    "4->2": 0.12,
+                    "4->3": 0.10,
+                    "4->9": 0.08,
+                    "2->3": 0.07
+                }
+            }
+        };
+
+        // RADIKALE KOMPROMISSE anwenden
+        function applyRK(zkId) {
+            const selectEl = document.getElementById(`rk-select-${zkId}`);
+            const infoEl = document.getElementById(`rk-info-${zkId}`);
+            const selectedIndex = selectEl.value;
+            
+            // Keine RK gewählt
+            if (selectedIndex === "") {
+                activeRKs[zkId] = null;
+                infoEl.style.display = "none";
+                
+                // Toggle-Container ausblenden
+                const toggleContainer = document.getElementById(`rk-toggle-container-${zkId}`);
+                if (toggleContainer) {
+                    toggleContainer.style.display = "none";
+                }
+                
+                // Erklärungs-Container ausblenden
+                const erklaerungContainer = document.getElementById(`rk-erklaerung-container-${zkId}`);
+                if (erklaerungContainer) {
+                    erklaerungContainer.style.display = "none";
+                }
+                
+                // Zurück zum Original-Zielwert
+                const zkIndex = zkId - 1; // Array ist 0-indexed
+                const slider = document.getElementById(`slider-${zkIndex}`);
+                slider.value = zkData[zkIndex].z2045;
+                
+                // Wenn KEINE RK mehr aktiv ist
+                const anyActiveRK = Object.values(activeRKs).some(rk => rk !== null);
+                if (!anyActiveRK) {
+                    // Globalen Toggle ausblenden
+                    document.getElementById('global-rk-toggle').style.display = 'none';
+                    
+                    // Tabelle ausblenden
+                    document.getElementById('rk-impact-table').style.display = 'none';
+                    document.getElementById('feedback-badge-container').innerHTML = '';
+                    
+                    // Chart-Punkte zurücksetzen
+                    if (chart) {
+                        chart.data.datasets[3].pointBackgroundColor = zkData.map(() => '#27ae60');
+                        chart.data.datasets[3].pointBorderColor = zkData.map(() => '#fff');
+                        chart.data.datasets[3].pointRadius = zkData.map(() => 6);
+                    }
+                }
+                
+                updateChart();
+                return;
+            }
+            
+            // RK gewählt
+            const rk = rkData[zkId][parseInt(selectedIndex)];
+            activeRKs[zkId] = rk;
+            
+            // Neuen Wert berechnen (prozentuale Gap-Schließung)
+            const zkIndex = zkId - 1;
+            const ist = zkData[zkIndex].ist;
+            const gap = zkData[zkIndex].z2045 - ist;
+            const neuerWert = ist + (gap * rk.gap_schliessung);
+            
+            // Slider aktualisieren
+            const slider = document.getElementById(`slider-${zkIndex}`);
+            slider.value = neuerWert.toFixed(1);
+            
+            // Info-Box befüllen
+            const prozent = (rk.gap_schliessung * 100).toFixed(0);
+            const geschlossen = (gap * rk.gap_schliessung).toFixed(1);
+            const verbleibend = (gap * (1 - rk.gap_schliessung)).toFixed(1);
+            
+            let nebenHTML = "";
+            if (Object.keys(rk.nebenwirkungen).length > 0) {
+                nebenHTML = "<br><strong>Nebenwirkungen:</strong><br>";
+                for (const [nzk, wert] of Object.entries(rk.nebenwirkungen)) {
+                    const zkName = zkData[parseInt(nzk) - 1].name;
+                    const symbol = wert > 0 ? "✅" : "⚠️";
+                    const prozentNeben = Math.abs(wert * 100).toFixed(0);
+                    nebenHTML += `${symbol} ZK ${nzk} (${zkName}): ${wert > 0 ? '+' : ''}${prozentNeben}% Gap-Effekt<br>`;
+                }
+            }
+            
+            infoEl.innerHTML = `
+                <strong>📋 ${rk.titel}</strong><br>
+                <em>${rk.kurz}</em><br><br>
+                <strong>⏱️ Laufzeit:</strong> ${rk.laufzeit}<br>
+                <strong>📊 Wirkung:</strong> Schließt ${prozent}% des Gaps (${geschlossen} Punkte)<br>
+                <strong>🎯 Neuer 2045-Wert:</strong> ${neuerWert.toFixed(1)} (von ${zkData[zkIndex].z2045})<br>
+                <strong>📉 Verbleibender Gap:</strong> ${verbleibend} Punkte
+                ${nebenHTML}
+            `;
+            infoEl.style.display = "block";
+            
+            // Button + Erklärung in separaten Container
+            const erklaerungContainer = document.getElementById(`rk-erklaerung-container-${zkId}`);
+            erklaerungContainer.innerHTML = `
+                <button id="button-erklaerung-${zkId}" onclick="toggleErklaerung(${zkId})" style="padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; width: 100%;">
+                    📖 Wie wirkt dieser RK? (In einfachen Worten)
+                </button>
+                <div id="erklaerung-${zkId}" style="display: none; margin-top: 15px; padding: 15px; background: #fff; border: 2px solid #3498db; border-radius: 8px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">💡 In einem Satz:</h4>
+                    <p style="font-style: italic; margin-bottom: 15px;">"${rk.erklaerung.satz}"</p>
+                    
+                    <h4 style="color: #2c3e50; margin-bottom: 8px;">🎯 Hauptwirkung:</h4>
+                    <p style="margin-bottom: 15px;">${rk.erklaerung.hauptwirkung}</p>
+                    
+                    <h4 style="color: #2c3e50; margin-bottom: 8px;">⚖️ Der Kompromiss:</h4>
+                    <ul style="margin: 0 0 15px 20px; line-height: 1.8;">
+                        ${rk.erklaerung.kompromiss.map(punkt => `<li>${punkt}</li>`).join('')}
+                    </ul>
+                    
+                    <h4 style="color: #2c3e50; margin-bottom: 8px;">⏰ Zeitrahmen:</h4>
+                    <p style="margin-bottom: 0;">${rk.erklaerung.zeitrahmen}</p>
+                </div>
+            `;
+            erklaerungContainer.style.display = "block";
+            
+            // Globalen Toggle-Container BEIM CHART anzeigen
+            const globalToggle = document.getElementById('global-rk-toggle');
+            globalToggle.style.display = 'block';
+            globalShowMitRK = true;
+            updateGlobalToggleButtons();
+            
+            // VISUELLES FEEDBACK - KOMPLETT ÜBERARBEITET
+            const betroffeneZKs = [zkId, ...Object.keys(rk.nebenwirkungen).map(k => parseInt(k))];
+            
+            // 1. BADGE mit konkreten Zahlen
+            const badgeContainer = document.getElementById('feedback-badge-container');
+            let badgeHTML = '<div class="visual-feedback-badge" style="font-size: 0.95em; line-height: 1.6;">⚡ <strong>Wirkung:</strong><br>';
+            
+            // Haupt-ZK
+            const vorherHaupt = zkData[zkIndex].z2045;
+            const nachherHaupt = neuerWert.toFixed(1);
+            const diffHaupt = (nachherHaupt - vorherHaupt).toFixed(1);
+            badgeHTML += `ZK ${zkId} (${zkData[zkIndex].name}): ${vorherHaupt}→${nachherHaupt} (${diffHaupt > 0 ? '+' : ''}${diffHaupt})<br>`;
+            
+            // Nebenwirkungen
+            for (const [nzk, wert] of Object.entries(rk.nebenwirkungen)) {
+                const nzkIndex = parseInt(nzk) - 1;
+                const nzkVorher = zkData[nzkIndex].z2045;
+                const nzkNachher = parseFloat(document.getElementById(`slider-${nzkIndex}`).value);
+                const nzkDiff = (nzkNachher - nzkVorher).toFixed(1);
+                badgeHTML += `ZK ${nzk} (${zkData[nzkIndex].name}): ${nzkVorher}→${nzkNachher.toFixed(1)} (${nzkDiff > 0 ? '+' : ''}${nzkDiff})<br>`;
+            }
+            badgeHTML += '</div>';
+            badgeContainer.innerHTML = badgeHTML;
+            
+            // 2. TABELLE befüllen
+            const impactTable = document.getElementById('rk-impact-table');
+            const impactTbody = document.getElementById('rk-impact-tbody');
+            let tableHTML = '';
+            
+            betroffeneZKs.forEach(zid => {
+                const zidx = zid - 1;
+                const vorher = originalZ2045Values[zidx];
+                const nachher = parseFloat(document.getElementById(`slider-${zidx}`).value);
+                const diff = (nachher - vorher).toFixed(1);
+                const diffSymbol = diff > 0 ? '📈' : diff < 0 ? '📉' : '➡️';
+                const diffColor = diff > 0 ? '#27ae60' : diff < 0 ? '#e74c3c' : '#95a5a6';
+                
+                tableHTML += `
+                    <tr style="border-bottom: 1px solid #dee2e6;">
+                        <td style="padding: 10px;"><strong>ZK ${zid}:</strong> ${zkData[zidx].name}</td>
+                        <td style="padding: 10px; text-align: center;">${vorher}</td>
+                        <td style="padding: 10px; text-align: center; font-weight: bold; color: ${diffColor};">${nachher.toFixed(1)}</td>
+                        <td style="padding: 10px; text-align: center; font-weight: bold; color: ${diffColor};">
+                            ${diffSymbol} ${diff > 0 ? '+' : ''}${diff}
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            impactTbody.innerHTML = tableHTML;
+            impactTable.style.display = 'block';
+            
+            // 3. Chart-Container highlighten
+            const radarContainer = document.getElementById('radar-container');
+            radarContainer.classList.add('chart-highlight');
+            setTimeout(() => {
+                radarContainer.classList.remove('chart-highlight');
+            }, 3000);
+            
+            // 4. Betroffene ZK-Punkte im Chart ROT markieren
+            if (chart) {
+                // Alle Punkte zurücksetzen
+                chart.data.datasets[3].pointBackgroundColor = zkData.map(() => '#27ae60');
+                chart.data.datasets[3].pointBorderColor = zkData.map(() => '#fff');
+                chart.data.datasets[3].pointRadius = zkData.map(() => 6);
+                
+                // Betroffene ZK rot markieren
+                betroffeneZKs.forEach(zid => {
+                    const zidx = zid - 1;
+                    chart.data.datasets[3].pointBackgroundColor[zidx] = '#e74c3c';
+                    chart.data.datasets[3].pointBorderColor[zidx] = '#fff';
+                    chart.data.datasets[3].pointRadius[zidx] = 8;
+                });
+                
+                chart.update('active');
+            }
+            
+            // 5. Smooth Scroll zum Chart
+            const chartSection = document.getElementById('chart-stats-section');
+            chartSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Auch Nebenwirkungen anwenden
+            for (const [nzk, wert] of Object.entries(rk.nebenwirkungen)) {
+                const nzkIndex = parseInt(nzk) - 1;
+                const nzkGap = zkData[nzkIndex].z2045 - zkData[nzkIndex].ist;
+                const nzkNeuerWert = zkData[nzkIndex].ist + (nzkGap * (1 + wert));
+                const nzkSlider = document.getElementById(`slider-${nzkIndex}`);
+                // Clamp zwischen 1 und 5
+                nzkSlider.value = Math.max(1, Math.min(5, nzkNeuerWert)).toFixed(1);
+            }
+            
+            updateChart();
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('radarChart');
+            if (!ctx) return;
+            
+            // Original-Werte speichern
+            zkData.forEach((zk, idx) => {
+                originalZ2045Values[idx] = zk.z2045;
+            });
+            
+            chart = new Chart(ctx.getContext('2d'), {
+                type: 'radar',
+                data: {
+                    labels: zkData.map(zk => `${zk.id}`),
+                    datasets: [
+                        {
+                            label: 'IST 2025',
+                            data: zkData.map(zk => zk.ist),
+                            borderColor: '#95a5a6',
+                            backgroundColor: 'rgba(149, 165, 166, 0.2)',
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#95a5a6'
+                        },
+                        {
+                            label: '2030 Zwischenziel',
+                            data: zkData.map(zk => zk.k2030),
+                            borderColor: '#f39c12',
+                            backgroundColor: 'rgba(243, 156, 18, 0.2)',
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#f39c12'
+                        },
+                        {
+                            label: '2045 OHNE RK (Original)',
+                            data: zkData.map((zk, idx) => originalZ2045Values[idx]),
+                            borderColor: '#95e1d3',
+                            backgroundColor: 'rgba(149, 225, 211, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [10, 5],
+                            pointRadius: 3,
+                            pointBackgroundColor: '#95e1d3'
+                        },
+                        {
+                            label: '2045 MIT RK (Aktuell)',
+                            data: zkData.map((zk, idx) => {
+                                const slider = document.getElementById(`slider-${idx}`);
+                                return slider ? parseFloat(slider.value) : zk.z2045;
+                            }),
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.2)',
+                            borderWidth: 4,
+                            pointRadius: 6,
+                            pointBackgroundColor: '#27ae60',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 5,
+                            ticks: {
+                                stepSize: 1,
+                                font: { size: 12 }
+                            },
+                            pointLabels: {
+                                font: { size: 14, weight: 'bold' }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { size: 13 }, padding: 12 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.r;
+                                    const zkIndex = context.dataIndex;
+                                    
+                                    if (context.datasetIndex === 3) { // MIT RK
+                                        const original = originalZ2045Values[zkIndex];
+                                        const diff = (value - original).toFixed(1);
+                                        const diffText = diff > 0 ? `+${diff}` : diff;
+                                        return `${label}: ${value} (${diffText} vs. Original)`;
+                                    }
+                                    return `${label}: ${value}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initMiniRadars() {
+            // Create mini radar for each ZK card
+            zkData.forEach((zk, idx) => {
+                const canvasId = `mini-radar-${idx + 1}`;
+                const canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                
+                new Chart(canvas.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['IST', '2030', '2045'],
+                        datasets: [{
+                            data: [zk.ist, zk.k2030, zk.z2045],
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                            borderWidth: 2,
+                            pointRadius: 3,
+                            pointBackgroundColor: ['#95a5a6', '#f39c12', '#27ae60']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1,
+                                    display: false
+                                },
+                                pointLabels: {
+                                    font: { size: 10 }
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            });
+        }
+
+        function toggleErklaerung(zkId) {
+            const erklaerungEl = document.getElementById(`erklaerung-${zkId}`);
+            const button = document.getElementById(`button-erklaerung-${zkId}`);
+            
+            if (erklaerungEl.style.display === 'none') {
+                erklaerungEl.style.display = 'block';
+                button.textContent = '🔼 Weniger Details';
+                button.style.background = '#95a5a6';
+            } else {
+                erklaerungEl.style.display = 'none';
+                button.textContent = '📖 Wie wirkt dieser RK? (In einfachen Worten)';
+                button.style.background = '#3498db';
+            }
+        }
+
+        // Toggle zwischen Mit/Ohne RK Ansicht
+        const rkViewState = {}; // Speichert für jeden ZK: true = MIT RK, false = OHNE RK
+
+        function toggleRKView(zkId) {
+            const isShowingMitRK = rkViewState[zkId] !== false; // Default: MIT RK zeigen
+            rkViewState[zkId] = !isShowingMitRK;
+            
+            const zkIndex = zkId - 1;
+            const slider = document.getElementById(`slider-${zkIndex}`);
+            const rk = activeRKs[zkId];
+            
+            if (!rk) return; // Kein RK aktiv
+            
+            // Zwischen Original und RK-Wert wechseln
+            if (rkViewState[zkId]) {
+                // MIT RK zeigen
+                const ist = zkData[zkIndex].ist;
+                const gap = zkData[zkIndex].z2045 - ist;
+                const neuerWert = ist + (gap * rk.gap_schliessung);
+                slider.value = neuerWert.toFixed(1);
+            } else {
+                // OHNE RK zeigen (Original)
+                slider.value = zkData[zkIndex].z2045;
+            }
+            
+            updateChart();
+            updateToggleDisplay(zkId);
+            
+            // Auto-Scroll zum Chart, damit User die Änderung sofort sieht
+            const chartContainer = document.querySelector('.chart-container');
+            if (chartContainer) {
+                chartContainer.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        function updateToggleDisplay(zkId) {
+            const isShowingMitRK = rkViewState[zkId] !== false;
+            const toggleContainer = document.getElementById(`rk-toggle-container-${zkId}`);
+            const rk = activeRKs[zkId];
+            const zkIndex = zkId - 1;
+            
+            if (!rk) return;
+            
+            const ist = zkData[zkIndex].ist;
+            const originalZiel = zkData[zkIndex].z2045;
+            const gap = originalZiel - ist;
+            const neuerWert = ist + (gap * rk.gap_schliessung);
+            const geschlossen = (gap * rk.gap_schliessung).toFixed(1);
+            const prozent = (rk.gap_schliessung * 100).toFixed(0);
+            
+            if (isShowingMitRK) {
+                toggleContainer.innerHTML = `
+                    <div style="padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; color: white;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="font-size: 1.1em;">👁️ Ansicht: MIT RK</strong>
+                            <button onclick="toggleRKView(${zkId})" style="padding: 6px 12px; background: rgba(255,255,255,0.2); color: white; border: 1px solid white; border-radius: 5px; cursor: pointer; font-size: 0.85em;">
+                                ↔️ Vergleich: OHNE RK zeigen
+                            </button>
+                        </div>
+                        <div style="font-size: 1.3em; font-weight: bold; margin: 10px 0;">
+                            📊 Zielwert 2045: ${neuerWert.toFixed(1)} <span style="font-size: 0.8em; opacity: 0.9;">⬅️ statt ${originalZiel}</span>
+                        </div>
+                        <div style="font-size: 0.95em; opacity: 0.95;">
+                            ✅ Gap geschlossen: ${prozent}% (${geschlossen} Punkte)
+                        </div>
+                    </div>
+                `;
+            } else {
+                toggleContainer.innerHTML = `
+                    <div style="padding: 15px; background: #95a5a6; border-radius: 8px; color: white;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="font-size: 1.1em;">👁️ Ansicht: OHNE RK (Original)</strong>
+                            <button onclick="toggleRKView(${zkId})" style="padding: 6px 12px; background: rgba(255,255,255,0.3); color: white; border: 1px solid white; border-radius: 5px; cursor: pointer; font-size: 0.85em;">
+                                ↔️ Vergleich: MIT RK zeigen
+                            </button>
+                        </div>
+                        <div style="font-size: 1.3em; font-weight: bold; margin: 10px 0;">
+                            📊 Zielwert 2045: ${originalZiel}
+                        </div>
+                        <div style="font-size: 0.95em; opacity: 0.95;">
+                            ⚠️ Voller Gap: ${gap.toFixed(1)} Punkte (kein RK angewendet)
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // GLOBALER TOGGLE - zeigt/versteckt für ALLE aktiven RKs gleichzeitig
+        let globalShowMitRK = true; // Default: MIT RK zeigen
+
+        function globalToggleRKView(showMitRK) {
+            globalShowMitRK = showMitRK;
+            
+            // Alle aktiven RKs durchgehen
+            Object.keys(activeRKs).forEach(zkId => {
+                if (activeRKs[zkId] !== null) {
+                    const zkIndex = zkId - 1;
+                    const slider = document.getElementById(`slider-${zkIndex}`);
+                    const rk = activeRKs[zkId];
+                    
+                    if (showMitRK) {
+                        // MIT RK zeigen
+                        const ist = zkData[zkIndex].ist;
+                        const gap = zkData[zkIndex].z2045 - ist;
+                        const neuerWert = ist + (gap * rk.gap_schliessung);
+                        slider.value = neuerWert.toFixed(1);
+                    } else {
+                        // OHNE RK zeigen (Original)
+                        slider.value = zkData[zkIndex].z2045;
+                    }
+                }
+            });
+            
+            updateChart();
+            updateGlobalToggleButtons();
+        }
+
+        function updateGlobalToggleButtons() {
+            const mitRKBtn = document.getElementById('toggle-mit-rk');
+            const ohneRKBtn = document.getElementById('toggle-ohne-rk');
+            
+            if (globalShowMitRK) {
+                // MIT RK aktiv
+                mitRKBtn.style.background = 'white';
+                mitRKBtn.style.color = '#667eea';
+                ohneRKBtn.style.background = 'rgba(255,255,255,0.2)';
+                ohneRKBtn.style.color = 'white';
+            } else {
+                // OHNE RK aktiv
+                mitRKBtn.style.background = 'rgba(255,255,255,0.2)';
+                mitRKBtn.style.color = 'white';
+                ohneRKBtn.style.background = 'white';
+                ohneRKBtn.style.color = '#667eea';
+            }
+        }
+
+        // TRANSFORMATIONSPFAD laden
+        function ladeTransformationspfad(pfadName) {
+            const pfad = transformationspfade[pfadName];
+            if (!pfad) return;
+            
+            // Erst alle RK zurücksetzen
+            [2, 4].forEach(zkId => {
+                const select = document.getElementById(`rk-select-${zkId}`);
+                if (select) {
+                    select.value = "";
+                    // Trigger change event um RK zu deaktivieren
+                    const event = new Event('change');
+                    select.dispatchEvent(event);
+                }
+            });
+            
+            // RK-Dropdowns setzen (falls im Pfad definiert)
+            if (pfad.rk_auswahl) {
+                Object.keys(pfad.rk_auswahl).forEach(zkId => {
+                    const rkIndex = pfad.rk_auswahl[zkId];
+                    if (rkIndex !== null && rkIndex !== undefined) {
+                        const select = document.getElementById(`rk-select-${zkId}`);
+                        if (select) {
+                            select.value = rkIndex.toString();
+                            // Trigger applyRK
+                            applyRK(parseInt(zkId));
+                        }
+                    }
+                });
+            }
+            
+            // Alle ZKs durchgehen und Werte berechnen
+            zkData.forEach((zk, idx) => {
+                const zkId = zk.id;
+                const gap = zk.z2045 - zk.ist;
+                
+                // Hat dieser ZK eine spezifische RK im Pfad?
+                let gapSchließung = pfad.gap_schließung_default;
+                
+                if (pfad.rk_auswahl && pfad.rk_auswahl[zkId] !== undefined && pfad.rk_auswahl[zkId] !== null) {
+                    // Spezifische RK für diesen ZK
+                    const rkIndex = pfad.rk_auswahl[zkId];
+                    const rk = rkData[zkId] && rkData[zkId][rkIndex];
+                    if (rk) {
+                        gapSchließung = rk.gap_schliessung;
+                    }
+                }
+                
+                // Synergien hinzufügen
+                Object.keys(pfad.synergien || {}).forEach(key => {
+                    const [von, zu] = key.split('->').map(n => parseInt(n));
+                    if (zu === zkId && pfad.rk_auswahl && pfad.rk_auswahl[von] !== undefined && pfad.rk_auswahl[von] !== null) {
+                        // Synergie wirkt!
+                        gapSchließung += pfad.synergien[key];
+                    }
+                });
+                
+                // Wert berechnen und Slider setzen
+                const neuerWert = zk.ist + (gap * gapSchließung);
+                const slider = document.getElementById(`slider-${idx}`);
+                if (slider) {
+                    slider.value = Math.min(5, Math.max(1, neuerWert.toFixed(1))); // Begrenzen auf 1-5
+                }
+            });
+            
+            updateChart();
+            
+            // Info-Nachricht
+            alert(`✅ Transformationspfad "${pfad.name}" geladen!\n\n${pfad.beschreibung}`);
+        }
+
+        function updateChart() {
+            if (!chart) return;
+            
+            // Update Chart - Dataset 3 (MIT RK)
+            chart.data.datasets[3].data = zkData.map((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                return parseFloat(slider.value);
+            });
+            
+            // Animation für smooth update
+            chart.update('active');
+            
+            // Update Slider Values
+            zkData.forEach((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                const valSpan = document.getElementById(`val-${idx}`);
+                if (valSpan) valSpan.textContent = slider.value;
+            });
+            
+            // Update Statistics
+            updateStatistics();
+            updateGapAnalysis();
+        }
+
+        function updateStatistics() {
+            const avgIst = zkData.reduce((sum, zk) => sum + zk.ist, 0) / zkData.length;
+            const avg2030 = zkData.reduce((sum, zk) => sum + zk.k2030, 0) / zkData.length;
+            
+            let sum2045 = 0;
+            zkData.forEach((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                sum2045 += parseFloat(slider.value);
+            });
+            const avg2045 = sum2045 / zkData.length;
+            const avgGap = avg2045 - avgIst;
+            
+            const avgIstEl = document.getElementById('avg-ist');
+            const avg2030El = document.getElementById('avg-2030');
+            const avg2045El = document.getElementById('avg-2045');
+            const avgGapEl = document.getElementById('avg-gap');
+            
+            if (avgIstEl) avgIstEl.textContent = avgIst.toFixed(2);
+            if (avg2030El) avg2030El.textContent = avg2030.toFixed(2);
+            if (avg2045El) avg2045El.textContent = avg2045.toFixed(2);
+            if (avgGapEl) avgGapEl.textContent = avgGap.toFixed(2);
+        }
+
+        function updateGapAnalysis() {
+            const gaps = zkData.map((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                const z2045 = parseFloat(slider.value);
+                return {
+                    id: zk.id,
+                    name: zk.name,
+                    ist: zk.ist,
+                    k2030: zk.k2030,
+                    z2045: z2045,
+                    gap: (z2045 - zk.ist).toFixed(1)
+                };
+            });
+            
+            gaps.sort((a, b) => parseFloat(b.gap) - parseFloat(a.gap));
+            
+            const listDiv = document.getElementById('gap-list');
+            if (!listDiv) return;
+            
+            listDiv.innerHTML = gaps.map(g => `
+                <div class="gap-item">
+                    <span class="gap-name">${g.id}. ${g.name}</span>
+                    <div class="gap-values">
+                        <span>IST: ${g.ist}</span>
+                        <span>2030: ${g.k2030}</span>
+                        <span>2045: ${g.z2045}</span>
+                        <span class="gap-value">Gap: ${g.gap}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function resetValues() {
+            zkData.forEach((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                if (slider) slider.value = zk.z2045;
+            });
+            updateChart();
+        }
+
+        function copyJSON() {
+            const values = {};
+            zkData.forEach((zk, idx) => {
+                const slider = document.getElementById(`slider-${idx}`);
+                values[zk.name] = {
+                    ist2025: zk.ist,
+                    kurs2030: zk.k2030,
+                    ziel2045: parseFloat(slider.value),
+                    gap: (parseFloat(slider.value) - zk.ist).toFixed(1)
+                };
+            });
+            
+            const json = JSON.stringify(values, null, 2);
+            navigator.clipboard.writeText(json).then(() => {
+                alert('✅ Werte als JSON kopiert!');
+            });
+        }
+
+        function toggleVis() {
+            visibleVis = !visibleVis;
+            const container = document.getElementById('vis-container');
+            if (container) container.style.display = visibleVis ? 'grid' : 'none';
+        }
+
+        // Initialize on first tab load
+        window.onload = () => {
+            // Tool tab is active by default, so initialize
+            initSliders();
+            initChart();
+            updateGapAnalysis();
+        };
+    </script>
+</body>
+</html>
