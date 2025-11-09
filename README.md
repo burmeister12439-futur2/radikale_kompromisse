@@ -1,2 +1,2 @@
 # radikale_kompromisse
-Transformeation in der Polykrise
+Transformation in der Polykrise
